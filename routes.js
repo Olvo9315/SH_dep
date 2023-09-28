@@ -8,6 +8,9 @@ const router = express.Router();
 router.use(express.static("public"));
 router.use(express.json());
 
+const db_name = "bit95gdkjmasj4qqbbzy";
+
+
 //<---- POST para cuestionario --->
 let resp_c = [];
 router.post("/cuest_post", (req, res) => {
@@ -195,7 +198,7 @@ router.post("/lopd_post", (req, res) => {
             if (error) {
                 return res.status(500).send({ status: "failed", message: "Error connecting to DB" });
             }
-            const collection = client.db("sh").collection("sh_clients_lopd");
+            const collection = client.db(db_name).collection("sh_clients_lopd");
             collection.findOne({ dni: resp_lopd[1] }, function (err, dbRes) {
                 if (err) {
                     return res.status(500).send({ status: "failed", message: "Error retrieving data from DB" });
@@ -354,10 +357,10 @@ router.get("/data/:nombre/:dni", function (req, res) {
         if (error) {
             return res.status(500).send({ status: "failed", message: "Error connecting to DB" });
         }
-        const collection_lopd = client.db("sh").collection("sh_clients_lopd");
-        const collection_cuest = client.db("sh").collection("sh_clients_cuest");
-        const collection_cons = client.db("sh").collection("sh_clients_cons");
-        const collection_apuntes = client.db("sh").collection("sh_apuntes");
+        const collection_lopd = client.db(db_name).collection("sh_clients_lopd");
+        const collection_cuest = client.db(db_name).collection("sh_clients_cuest");
+        const collection_cons = client.db(db_name).collection("sh_clients_cons");
+        const collection_apuntes = client.db(db_name).collection("sh_apuntes");
         // Buscar los datos relacionados con el nombre en la base de datos
         collection_cuest.findOne({ nombre: nombre, dni: dni }, function (err, data) {
             if (err) {
