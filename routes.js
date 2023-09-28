@@ -328,7 +328,7 @@ router.get("/search/:name", function (req, res) {
         if (error) {
             return res.status(500).send({ status: "failed", message: "Error connecting to DB" });
         }
-        const collection = client.db("sh").collection("sh_clients_lopd");
+        const collection = client.db(db_name).collection("sh_clients_lopd");
 
         // Buscar los nombres similares en la base de datos
         collection.find({
