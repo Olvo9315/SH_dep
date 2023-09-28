@@ -234,7 +234,7 @@
         }
 
         // Cargar datos
-        const baseURL = 'http://127.0.0.1:7979/apuntes_get'
+        const baseURL = 'http://smilehouseapp.cleverapps.io/apuntes_get'
         //const baseURL = 'http://192.168.0.12:7979/apuntes_get'
         async function cargar_desde_main() {
             const res = await fetch(baseURL, {
@@ -252,7 +252,7 @@
             imageObj.src = data.info.apunte;
         }
         // --- Botón "Actualizar" ----//
-        const baseURLpost = 'http://127.0.0.1:7979/apuntes'
+        const baseURLpost = 'http://smilehouseapp.cleverapps.io/apuntes'
         //const baseURLpost = 'http://192.168.0.12:7979/apuntes'
         actualizar.addEventListener("click", async function (event) {
             var canvas = document.getElementById('canvas');
