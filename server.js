@@ -1,8 +1,8 @@
 const { error } = require("console");
 const express = require("express");
 const fs = require('fs');
-const port = 7979;
-const host = '127.0.0.1'
+const port = 8080;
+const host = '0.0.0.0'
 // const host = '192.168.0.12'
 //const host = '172.30.16.1'
 const routes = require("./routes")
