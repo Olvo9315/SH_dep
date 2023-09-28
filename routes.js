@@ -185,8 +185,8 @@ router.post("/lopd_post", (req, res) => {
         return res.status(400).send({ status: "failed", message: "Data is missing" });
     }
     else {
-        console.log("Post LOPD OK. " + resp_lopd[0])
-        res.status(200).send({ status: "recieved" });
+        //console.log("Post LOPD OK. " + resp_lopd[0])
+        //res.status(200).send({ status: "recieved" });
         const data = {
             "nombre": resp_lopd[0],
             "dni": resp_lopd[1],

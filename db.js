@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb://uiecpodjsmlp9axpmdp3:dq7ceXImge3a6FEoZpl@bit95gdkjmasj4qqbbzy-mongodb.services.clever-cloud.com:2366";
+const uri = "mongodb://uiecpodjsmlp9axpmdp3:dq7ceXImge3a6FEoZpl@bit95gdkjmasj4qqbbzy-mongodb.services.clever-cloud.com:2366/bit95gdkjmasj4qqbbzy";
 //const uri = "mongodb://0.0.0.0:27017";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
