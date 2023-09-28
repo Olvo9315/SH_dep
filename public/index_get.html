@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>Smile House</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /*.logobox {
+      padding-left: 30px;
+    }*/
+
+    .imglogo {
+      border-radius: 50%;
+    }
+
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    [class*="col-"] {
+      float: left;
+      padding: 1px;
+    }
+
+    html {
+      font-family: "Lucida Sans", sans-serif;
+    }
+
+    .header {
+      background-color: #ffffff;
+      color: #000000;
+      padding-top: 1px;
+      padding-right: 10px;
+      padding-bottom: 0px;
+      padding-left: 55px;
+      height: 98px;
+      margin-left: -8px;
+      margin-right: -8px;
+      margin-bottom: -10px;
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3)
+    }
+
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 1100px) {
+
+      /* For tablets: */
+      .col-s-1 {
+        width: 8.33%;
+      }
+
+      .col-s-2 {
+        width: 16.66%;
+      }
+
+      .col-s-3 {
+        width: 25%;
+      }
+
+      .col-s-4 {
+        width: 33.33%;
+      }
+
+      .col-s-5 {
+        width: 41.66%;
+      }
+
+      .col-s-6 {
+        width: 50%;
+      }
+
+      .col-s-7 {
+        width: 58.33%;
+      }
+
+      .col-s-8 {
+        width: 66.66%;
+      }
+
+      .col-s-9 {
+        width: 75%;
+      }
+
+      .col-s-10 {
+        width: 83.33%;
+      }
+
+      .col-s-11 {
+        width: 91.66%;
+      }
+
+      .col-s-12 {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 1120px) {
+
+      /* For desktop: */
+      .col-1 {
+        width: 8.33%;
+      }
+
+      .col-2 {
+        width: 16.66%;
+      }
+
+      .col-3 {
+        width: 25%;
+      }
+
+      .col-4 {
+        width: 33.33%;
+      }
+
+      .col-5 {
+        width: 41.66%;
+      }
+
+      .col-6 {
+        width: 50%;
+      }
+
+      .col-7 {
+        width: 58.33%;
+      }
+
+      .col-8 {
+        width: 66.66%;
+      }
+
+      .col-9 {
+        width: 75%;
+      }
+
+      .col-10 {
+        width: 83.33%;
+      }
+
+      .col-11 {
+        width: 91.66%;
+      }
+
+      .col-12 {
+        width: 100%;
+      }
+    }
+
+    /*
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #f4511e;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 14px;
+      padding: 10px;
+      width: 150px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }*/
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+
+    /* CSS */
+    .button {
+      align-items: center;
+      background-color: #fff;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      color: #000;
+      cursor: pointer;
+      display: inline-flex;
+      fill: #000;
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 170;
+      height: 18px;
+      justify-content: center;
+      letter-spacing: -.8px;
+      line-height: 18px;
+      min-width: 170px;
+      outline: 0;
+      padding: 15px;
+      margin: 5px;
+      text-align: center;
+      text-decoration: none;
+      transition: all .3s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+
+<body onclick="hideResults()">
+
+  <div class="header" style="margin-top: -8px; background-color: aliceblue; position: relative; z-index: 99;">
+    <table>
+      <td>
+        <img
+          src="data:image/jpeg;base64,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"
+          style=" display:inline-block; width:85px; height:85px;" class="imglogo" />
+      </td>
+      <td style="width: 100%; text-align: right">
+        <div style="display: inline-flex; gap: 5px;">
+          <input id="s_name" type="search" class="s_filter" style="margin-right: 3px;" aria-haspopup="listbox"
+            aria-owns="p_items" placeholder="Nombre" aria-activedescendant="active-item" oninput="search(event)" onclick="search(event)">
+          <ul id="results" class="results-container" style="display:none;">
+          </ul>
+          <input id="s_dni" type="search" class="s_filter_dni" style="margin-right: 3px;" placeholder="DNI"
+            oninput="search(event)" onclick="search(event)">
+          <button class="button-29" role="button" data-action="get_data" onclick="cargar_data()">Cargar Datos</button>
+        </div>
+      </td>
+    </table>
+  </div>
+  <!-- <hr style="margin-left: -4px"> -->
+
+  <div class="row"
+    style="background-color: aliceblue; margin-left: -8px; margin-right: -8px; margin-bottom: 0px; margin-top: 10px; padding-top: 15px; padding-bottom: 10px">
+    <div class="col-1 col-s-1 menu" style="padding-left: 25px">
+      <button class="button" style="vertical-align:middle" onclick="btclick(id)"
+        id="cuestionario_get.html"><span>Cuestionario</span></button>
+      <button class="button" style="vertical-align:middle" onclick="btclick(id)"
+        id="consentimiento_get.html"><span>Consentimiento </span></button>
+      <button class="button" style="vertical-align:middle" onclick="btclick(id)"
+        id="lopd_get.html"><span>LOPD</span></button>
+      <button class="button" style="vertical-align:middle" onclick="btclick(id)"
+        id="apuntes.html"><span>Apuntes</span></button>
+    </div>
+
+    <div class="col-11 col-s-11 col-" style="text-align: center;">
+      <iframe src="cuestionario_get.html" width="760px" height="810" style="border: none;"></iframe>
+    </div>
+  </div>
+
+  <script>
+    async function hideResults(event) {
+      return document.getElementById("results").style.display = "none";
+    }
+
+    function btclick(link) {
+      document.querySelector("iframe").src = link;
+    }
+
+    var myFrame = document.querySelector("iframe").contentWindow;
+    window.cargar_data = function () {
+      myFrame.cargar_desde_main();
+    }
+
+    async function search(event) {
+      const name = event.target.value;
+      if (!name) {
+        return document.getElementById("results").style.display = "none";
+      }
+
+      fetch(`/search/${name}`)
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(function (results) {
+          // Mostrar los resultados en el contenedor desplegable
+          const resultsContainer = document.getElementById("results");
+          resultsContainer.innerHTML = "";
+          results.forEach(function (result) {
+            const option = document.createElement("li");
+            option.innerHTML = `
+            <span style="font-size:14px;">Nombre: </span><span style="font-size:18px;"><b>${result.nombre}</b></span><br>  
+            <span style="font-size:14px;">DNI: </span><span style="font-size:16px;">${result.dni}</span><br>  
+              <span style="font-size:14px;">Fecha: </span><span style="font-size:14px;">${result.fecha}</span><br> `;
+            option.classList.add("result-item");
+            option.onclick = function () {
+              loadData(result.nombre, result.dni);
+            };
+            resultsContainer.appendChild(option);
+          });
+          resultsContainer.style.display = "block";
+          //document.getElementById("s_dni").value = result._id;
+        })
+        .catch(function (error) {
+          // Manejar el error
+          console.error(error);
+        });
+    }
+
+    function loadData(nombre, dni) {
+      // Cargar los datos relacionados al nombre seleccionado
+      fetch(`/data/${nombre}/${dni}`)
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          // Mostrar los datos en la página
+          document.getElementById("results").style.display = "none";
+          document.getElementById("s_name").value = data.nombre;
+          document.getElementById("s_dni").value = data.dni;
+        })
+        .catch(function (error) {
+          // Manejar el error
+          console.error(error);
+        });
+    }
+
+  </script>
+</body>
+
+</html>

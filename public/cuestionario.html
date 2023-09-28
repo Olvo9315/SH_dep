@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
+    integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="index.html" id="index"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/signature_pad.umd.js"></script>
+<script src="js/sign-handler.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="TCPDF" />
+    <meta name="generator" content="Aspose.Words for .NET 22.7.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cuestionario de salud</title>
+    <style type="text/css">
+        body {
+            font-family: 'Times New Roman';
+            font-size: 12pt
+        }
+
+        p {
+            margin: 0pt
+        }
+
+        li {
+            margin-top: 0pt;
+            margin-bottom: 0pt
+        }
+    </style>
+</head>
+
+<body
+    style="margin: 15px auto; width:700px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:20px; margin-top: 0px; margin-bottom: 2px; background-color: #fff">
+    <div id="all" style="width:700px; font-size:14pt; text-align:left;">
+        <div id="p1">
+            <img src="data:image/jpeg;base64,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"
+                style=" display:block; width:150px; height:150px" class="center" />
+            <p style="text-align: left;">Nombre y apellidos del paciente:
+                <input style="border:none" oninput="this.size = this.value.length + 1" method='post' type="text"
+                    id="nombre_paciente" name="nombre_paciente"
+                    placeholder="......................................................." />
+            </p>
+            <p>DNI (NIE):
+                <input style="border:none" method='post' type="text" id="dni" name="dni" size="15"
+                    placeholder="............" />
+            </p>
+            <p>Sexo:
+                <input style="border:none" method='post' type="text" id="sex" name="sex" size="20"
+                    placeholder="............" />
+            </p>
+            <p>Fecha de nacimiento:
+                <input style="border:none" method='post' type="date" id="bdate" name="bdate">
+            </p>
+            <p>Teléfono:
+                <input style="border:none" method='post' type="text" id="tel" name="tel" size="15"
+                    placeholder="............" />
+            </p>
+            <p><span style="font-weight:bold">CUESTIONARIO DE SALUD: </span>en caso de declarar alguna enfermedad,
+                adjunte
+                los informes médicos correspondientes si es posible.
+            </p>
+            <p>1.Peso en Kg:
+                <input style="border:none; width: 60px;" method='post' type="number" id="peso" name="peso" size="3"
+                    placeholder="..." />
+                <span>&#xa0;</span>Estatura en cm:
+                <input style="border:none; width: 60px;" method='post' type="number" id="estat" name="estat" size="3"
+                    placeholder="..." />
+            </p>
+            <p>&#xa0;</p>
+            <p>2.Si fuma, indique el número de CIGARIILLOS que fuma al día:
+            <p>SÍ<input onchange="changechecksi(0);" method='post' type="checkbox" id="si0" name="si0" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(0);" method='post' type="checkbox" id="no0" name="no0" />
+            </p>
+            <!-- <p>SÍ<input
+                    onchange="document.getElementById('n[0]').checked = !(this.checked); document.getElementById('obs0').style = 'border:none; width: 60px'"
+                    method='post' type="checkbox" id="s[0]" name="si0" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input
+                    onchange="document.getElementById('s[0]').checked = !(this.checked); document.getElementById('obs0').style = 'display:none'"
+                    method='post' type="checkbox" id="n[0]" name="no0" />
+            </p> -->
+            <input style="border:none; display:none; width: 60px;" method='post' type="number" id="obs0" name="obs0"
+                size="3" placeholder="..." />
+            </p>
+            <p>&#xa0;</p>
+            <p>3.Padece o ha padecido alguna ENFERMEDAD?</p>
+            <p>Del CORAZÓN o VASCULAR (ejemplos: hipertensión, infarto, angina, arritmia, soplos, defectos valvulares)
+            <p>SÍ<input onchange="changechecksi(1);" method='post' type="checkbox" id="si1" name="si1" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(1);" method='post' type="checkbox" id="no1" name="no1" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs1"
+                name="obs1"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>METABÓLICA O ENDOCRINA (ejemplos: diabetes, colesterol o triglicéridos elevados, trastornos de la
+                tiroides)
+            <p>SÍ<input onchange="changechecksi(2);" method='post' type="checkbox" id="si2" name="si2" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(2);" method='post' type="checkbox" id="no2" name="no2" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs2"
+                name="obs2"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Del SISTEMA NERVIOSO (ejemplos: epilepsia, embolia, Parkinson, esclerosis múltiple)
+            <p>SÍ<input onchange="changechecksi(3);" method='post' type="checkbox" id="si3" name="si3" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(3);" method='post' type="checkbox" id="no3" name="no3" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs3"
+                name="obs3"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Del APARATO DIGESTIVO O DEL HÍGADO (ejemplos: hepatitis-excepto A-, cirrosis, Crohn, colitis ulcerosa)
+            <p>SÍ<input onchange="changechecksi(4);" method='post' type="checkbox" id="si4" name="si4" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(4);" method='post' type="checkbox" id="no4" name="no4" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs4"
+                name="obs4"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>RESPIRATORIA (ejemplos: asma, bronquitis crónica, enfisema, apnea del sueño)
+            <p>SÍ<input onchange="changechecksi(5);" method='post' type="checkbox" id="si5" name="si5" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(5);" method='post' type="checkbox" id="no5" name="no5" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs5"
+                name="obs5"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>PSIQUIÁTRICA (ejemplos: depresión, angustia, trastorno bipolar, esquizofrenia, anorexia)
+            <p>SÍ<input onchange="changechecksi(6);" method='post' type="checkbox" id="si6" name="si6" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(6);" method='post' type="checkbox" id="no6" name="no6" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs6"
+                name="obs6"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>INFECCIOSA (ejemplos: portador del VIH, SIDA, o tuberculosis)
+            <p>SÍ<input onchange="changechecksi(7);" method='post' type="checkbox" id="si7" name="si7" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(7);" method='post' type="checkbox" id="no7" name="no7" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs7"
+                name="obs7"></textarea>
+            </p>
+            <p>&#xa0;</p>
+        </div>
+        <div id="p2">
+            <p>Del riñón o urológica(ejemplos: insuficiencia renal, próstata)
+            <p>SÍ<input onchange="changechecksi(8);" method='post' type="checkbox" id="si8" name="si8" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(8);" method='post' type="checkbox" id="no8" name="no8" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs8"
+                name="obs8"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>GINECOLGICA (ejemplos: de mama, de útero, de ovarios)
+            <p>SÍ<input onchange="changechecksi(9);" method='post' type="checkbox" id="si9" name="si9" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(9);" method='post' type="checkbox" id="no9" name="no9" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs9"
+                name="obs9"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>De la VISTA o del oído (ejemplos: más de 8 dioptrías de miopía, ceguera, desprendimiento de retina,
+                sordera)
+            <p>SÍ<input onchange="changechecksi(10);" method='post' type="checkbox" id="si10" name="si10" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(10);" method='post' type="checkbox" id="no10" name="no10" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs10"
+                name="obs10"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>TUMORAL O CANCEROSA
+            <p>SÍ<input onchange="changechecksi(11);" method='post' type="checkbox" id="si11" name="si11" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(11);" method='post' type="checkbox" id="no11" name="no11" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs11"
+                name="obs11"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>REUMATOLGICA o de COLUMNA VERTEBRAL (ejemplos: artritis, artrosis, Iupus, fibromialgia, hernia discal)
+            <p>SÍ<input onchange="changechecksi(12);" method='post' type="checkbox" id="si12" name="si12" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(12);" method='post' type="checkbox" id="no12" name="no12" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs12"
+                name="obs12"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>OTRAS
+            <p>SÍ<input onchange="changechecksi(13);" method='post' type="checkbox" id="si13" name="si13" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(13);" method='post' type="checkbox" id="no13" name="no13" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="2" id="obs13"
+                name="obs13"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Consume algún MEDICAMENTO prescrito por su médico? (ejemplos: para la diabetes, antidepresivos,
+                ansiolíticos
+                antihipertensivos, diuréticos, antiinflamatorios). En caso afirmativo, ¿cuales?, ¿desde cuando?, ¿por
+                que?
+            <p>SÍ<input onchange="changechecksi(14);" method='post' type="checkbox" id="si14" name="si14" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(14);" method='post' type="checkbox" id="no14" name="no14" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="3" id="obs14"
+                name="obs14"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Está de BAJA LABORAL o lo ha estado durante más de 3 semanas en los últimos 5 años? (Excepto maternidad)
+                En
+                caso afirmativo indique por que y durante cuanto tiempo
+            <p>SÍ<input onchange="changechecksi(15);" method='post' type="checkbox" id="si15" name="si15" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(15);" method='post' type="checkbox" id="no15" name="no15" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs15"
+                name="obs15"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Ha sido HOSPITALIZADO, INTERVENIDO quirúrgicamente o se ha efectuado algún ESTUDIO o TRATAMIENTO
+                concreto, o
+                tiene previsto realizarlo próximamente? (Excepto anginas, vegetaciones, hernias inguinales, apendicitis
+                cirugía estética, partos o cesáreas) En caso afirmativo, ¿de que?, ¿cuando?, ¿tiene secuelas?
+            <p>SÍ<input onchange="changechecksi(16);" method='post' type="checkbox" id="si16" name="si16" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(16);" method='post' type="checkbox" id="no16" name="no16" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="2" id="obs16"
+                name="obs16"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Consume o ha consumido más de 5 unidades de alcohol al día? (1 unidad = 1 vaso de vino, cerveza o
+                liquor). En
+                caso afirmativo indique el número de unidades de alcohol por día
+            <p>SÍ<input onchange="changechecksi(17);" method='post' type="checkbox" id="si17" name="si17" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(17);" method='post' type="checkbox" id="no17" name="no17" />
+            </p>
+            <input style="border:none; display:none; width: 80px;" method='post' type="number" id="obs17" name="obs17"
+                size="3" placeholder="..." />
+            </p>
+            <p>&#xa0;</p>
+        </div>
+        <div id="p3">
+            <p>Consume o ha consumido ESTUPEFACIENTES o DROGAS (ejemplos: Cocaina, heroína, marihuana, alucinógenos u
+                otros)? En caso afirmativo indique el tipo, cuando, durante cuanto tiempo, la frecuencia
+            <p>SÍ<input onchange="changechecksi(18);" method='post' type="checkbox" id="si18" name="si18" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(18);" method='post' type="checkbox" id="no18" name="no18" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="1" id="obs18"
+                name="obs18"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Tiene solicitada o reconocida alguna DISCAPACIDAD o algún tipo de INVALIDEZ por enfermedad o accidente.
+                En
+                caso afirmativo indique el grado de discapacidad, el tipo de invalidez y su causa médica
+            <p>SÍ<input onchange="changechecksi(19);" method='post' type="checkbox" id="si19" name="si19" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(19);" method='post' type="checkbox" id="no19" name="no19" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="2" id="obs19"
+                name="obs19"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>Tiene algún tipo de ALERGIA, INTOLERANCIA a los medicamentos o alimentos? En caso afirmativo indique el
+                tipo,
+                su causa
+            <p>SÍ<input onchange="changechecksi(20);" method='post' type="checkbox" id="si20" name="si20" />
+                <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+                NO<input onchange="changecheckno(20);" method='post' type="checkbox" id="no20" name="no20" />
+            </p>
+            <textarea style="border:none; display:none" method='post' cols="80" rows="2" id="obs20"
+                name="obs20"></textarea>
+            </p>
+            <p>&#xa0;</p>
+            <p>
+            <div class="row">
+                <div class="column">
+                    En Valencia a <input style="border:none" method='post' type="date" id="date" name="date">
+                </div>
+                <div class="column">
+                    <canvas id="signature-pad" width="350" height="150"
+                        style="border: 1px solid rgb(255, 255, 255);"></canvas>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+    <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+    <button type="button" style="margin-top: 2%; margin-bottom: 3%" class="btn btn-dark" data-action="action-clear">
+        Clear
+    </button>
+    <div>
+        <button class="button-29" role="button" data-action="action-pdf">Aceptar</button>
+    </div>
+    <script>
+        function changechecksi(i) {
+            document.getElementById('no' + i).checked = !(document.getElementById('si' + i).checked)
+            if (document.getElementById('si' + i).checked && document.getElementById('obs' + i)) {
+                document.getElementById('obs' + i).style.display = "inline"
+            }
+            else if (document.getElementById('obs' + i)) {
+                document.getElementById('obs' + i).style.display = "none"
+            }
+        };
+        function changecheckno(i) {
+            document.getElementById('si' + i).checked = !(document.getElementById('no' + i).checked)
+            if (document.getElementById('no' + i).checked && document.getElementById('obs' + i)) {
+                document.getElementById('obs' + i).style.display = "none"
+            }
+            else if (document.getElementById('obs' + i)) {
+                document.getElementById('obs' + i).style.display = "inline"
+            }
+        };
+
+        var clearBtn = document.querySelector("[data-action=action-clear]");
+        var createPDFBtn = document.querySelector("[data-action=action-pdf]");
+        var canvas = document.getElementById("signature-pad");
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgb(250,250,250)'
+        });
+
+        canvas.getContext("2d");
+
+        var sg_data = signaturePad.toDataURL();
+        var strimg = sg_data.replace("data:image/png;base64,", "");
+
+        clearBtn.addEventListener("click", function (event) {
+            if (signaturePad.isEmpty()) {
+                alert("Please sign first.");
+            } else {
+                signaturePad.clear();
+            }
+        });
+
+        function faltandatos(i) {
+            document.getElementById(i).focus();
+            if (i == "signature-pad") {
+                Swal.fire({
+                    title: 'Falta la firma',
+                    text: ' ',
+                    icon: 'error',
+                })
+            }
+            else {
+                Swal.fire({
+                    title: 'Faltan datos por rellenar',
+                    text: ' ',
+                    icon: 'error',
+                })
+            }
+        }
+
+        const baseURL = 'http://127.0.0.1:7979/cuest_post'
+        //const baseURL = 'http://192.168.0.12:7979/cuest_post'
+        //const baseURL = 'http://192.168.56.1:7979/cuest_post'
+        createPDFBtn.addEventListener("click", async function (event) {
+
+            var dataURL = canvas.toDataURL();
+
+            window.html2canvas = html2canvas;
+            window.jsPDF = window.jspdf.jsPDF;
+
+            var doc = new jsPDF({
+                orientation: "p",
+                unit: "pt",
+                format: "a4",
+            });
+
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            }
+
+            const cnombre = document.getElementById("nombre_paciente").value;
+            const cdni = document.getElementById("dni").value;
+            const csex = document.getElementById("sex").value;
+            const cbdate = document.getElementById("bdate").value;
+            const ctel = document.getElementById("tel").value;
+            const cpeso = document.getElementById("peso").value;
+            const cestat = document.getElementById("estat").value;
+            const cs0 = document.getElementById("si0").checked;
+            const cn0 = document.getElementById("no0").checked;
+            const cobs0 = document.getElementById("obs0").value;
+            const cs1 = document.getElementById("si1").checked;
+            const cn1 = document.getElementById("no1").checked;
+            const cobs1 = document.getElementById("obs1").value;
+            const cs2 = document.getElementById("si2").checked;
+            const cn2 = document.getElementById("no2").checked;
+            const cobs2 = document.getElementById("obs2").value;
+            const cs3 = document.getElementById("si3").checked;
+            const cn3 = document.getElementById("no3").checked;
+            const cobs3 = document.getElementById("obs3").value;
+            const cs4 = document.getElementById("si4").checked;
+            const cn4 = document.getElementById("no4").checked;
+            const cobs4 = document.getElementById("obs4").value;
+            const cs5 = document.getElementById("si5").checked;
+            const cn5 = document.getElementById("no5").checked;
+            const cobs5 = document.getElementById("obs5").value;
+            const cs6 = document.getElementById("si6").checked;
+            const cn6 = document.getElementById("no6").checked;
+            const cobs6 = document.getElementById("obs6").value;
+            const cs7 = document.getElementById("si7").checked;
+            const cn7 = document.getElementById("no7").checked;
+            const cobs7 = document.getElementById("obs7").value;
+            const cs8 = document.getElementById("si8").checked;
+            const cn8 = document.getElementById("no8").checked;
+            const cobs8 = document.getElementById("obs8").value;
+            const cs9 = document.getElementById("si9").checked;
+            const cn9 = document.getElementById("no9").checked;
+            const cobs9 = document.getElementById("obs9").value;
+            const cs10 = document.getElementById("si10").checked;
+            const cn10 = document.getElementById("no10").checked;
+            const cobs10 = document.getElementById("obs10").value;
+            const cs11 = document.getElementById("si11").checked;
+            const cn11 = document.getElementById("no11").checked;
+            const cobs11 = document.getElementById("obs11").value;
+            const cs12 = document.getElementById("si12").checked;
+            const cn12 = document.getElementById("no12").checked;
+            const cobs12 = document.getElementById("obs12").value;
+            const cs13 = document.getElementById("si13").checked;
+            const cn13 = document.getElementById("no13").checked;
+            const cobs13 = document.getElementById("obs13").value;
+            const cs14 = document.getElementById("si14").checked;
+            const cn14 = document.getElementById("no14").checked;
+            const cobs14 = document.getElementById("obs14").value;
+            const cs15 = document.getElementById("si15").checked;
+            const cn15 = document.getElementById("no15").checked;
+            const cobs15 = document.getElementById("obs15").value;
+            const cs16 = document.getElementById("si16").checked;
+            const cn16 = document.getElementById("no16").checked;
+            const cobs16 = document.getElementById("obs16").value;
+            const cs17 = document.getElementById("si17").checked;
+            const cn17 = document.getElementById("no17").checked;
+            const cobs17 = document.getElementById("obs17").value;
+            const cs18 = document.getElementById("si18").checked;
+            const cn18 = document.getElementById("no18").checked;
+            const cobs18 = document.getElementById("obs18").value;
+            const cs19 = document.getElementById("si19").checked;
+            const cn19 = document.getElementById("no19").checked;
+            const cobs19 = document.getElementById("obs19").value;
+            const cs20 = document.getElementById("si20").checked;
+            const cn20 = document.getElementById("no20").checked;
+            const cobs20 = document.getElementById("obs20").value;
+            const cdate = document.getElementById("date").value;
+            event.preventDefault()
+            if (cnombre == '') {
+                faltandatos("nombre_paciente")
+            }
+            else if (cdni == '') {
+                faltandatos("dni")
+            }
+            else if (csex == '') {
+                faltandatos("sex")
+            }
+            else if (cbdate == '') {
+                faltandatos("bdate")
+            }
+            else if (ctel == '') {
+                faltandatos("tel")
+            }
+            else if (cpeso == '') {
+                faltandatos("peso")
+            }
+            else if (cestat == '') {
+                faltandatos("estat")
+            }
+            else if (cs0 == false && cn0 == false) {
+                faltandatos("no0")
+            }
+            else if (cs1 == false && cn1 == false) {
+                faltandatos("no1")
+            }
+            else if (cs2 == false && cn2 == false) {
+                faltandatos("no2")
+            }
+            else if (cs3 == false && cn3 == false) {
+                faltandatos("no3")
+            }
+            else if (cs4 == false && cn4 == false) {
+                faltandatos("no4")
+            }
+            else if (cs5 == false && cn5 == false) {
+                faltandatos("no5")
+            }
+            else if (cs6 == false && cn6 == false) {
+                faltandatos("no6")
+            }
+            else if (cs7 == false && cn7 == false) {
+                faltandatos("no7")
+            }
+            else if (cs8 == false && cn8 == false) {
+                faltandatos("no8")
+            }
+            else if (cs9 == false && cn9 == false) {
+                faltandatos("no9")
+            }
+            else if (cs10 == false && cn10 == false) {
+                faltandatos("no10")
+            }
+            else if (cs11 == false && cn11 == false) {
+                faltandatos("no11")
+            }
+            else if (cs12 == false && cn12 == false) {
+                faltandatos("no12")
+            }
+            else if (cs13 == false && cn13 == false) {
+                faltandatos("no13")
+            }
+            else if (cs14 == false && cn14 == false) {
+                faltandatos("no14")
+            }
+            else if (cs15 == false && cn15 == false) {
+                faltandatos("no15")
+            }
+            else if (cs16 == false && cn16 == false) {
+                faltandatos("no16")
+            }
+            else if (cs17 == false && cn17 == false) {
+                faltandatos("no17")
+            }
+            else if (cs18 == false && cn18 == false) {
+                faltandatos("no18")
+            }
+            else if (cs19 == false && cn19 == false) {
+                faltandatos("no19")
+            }
+            else if (cs20 == false && cn20 == false) {
+                faltandatos("no20")
+            }
+            else if (cdate == '') {
+                faltandatos("date")
+            }
+            else if (dataURL == 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACWCAYAAACW5+B3AAAAAXNSR0IArs4c6QAABNFJREFUeF7t1LEJADAMBLF4/43dJJAhrpIXeBDmZnfvcQQIECCQCYzwZtaGCBAg8AWE1yMQIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBITXDxAgQCAWEN4Y3BwBAgSE1w8QIEAgFhDeGNwcAQIEhNcPECBAIBYQ3hjcHAECBB61Jk2TmFR1mgAAAABJRU5ErkJggg==') {
+                faltandatos("signature-pad")
+            }
+            else {
+                const res = fetch(baseURL, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": 'application/json'
+                    },
+                    body: JSON.stringify({
+                        resp_cuest: [cnombre, cdni, csex, cbdate, ctel, cpeso, cestat, cs0, cn0, cobs0, cs1, cn1, cobs1,
+                            cs2, cn2, cobs2, cs3, cn3, cobs3, cs4, cn4, cobs4, cs5, cn5, cobs5, cs6, cn6, cobs6, cs7, cn7, cobs7,
+                            cs8, cn8, cobs8, cs9, cn9, cobs9, cs10, cn10, cobs10, cs11, cn11, cobs11, cs12, cn12, cobs12, cs13,
+                            cn13, cobs13, cs14, cn14, cobs14, cs15, cn15, cobs15, cs16, cn16, cobs16, cs17, cn17, cobs17, cs18,
+                            cn18, cobs18, cs19, cn19, cobs19, cs20, cn20, cobs20, cdate, dataURL],
+                    })
+                }).then(response => response.json())
+                    .then(data => {
+                        if (data.status === "existing") {
+                            Swal.fire({
+                                title: 'Los datos ya existen',
+                                text: '¿Desea reemplazarlos?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Sí, reemplazar',
+                                cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                                if (result.value) {
+                                    // Reemplazar los datos
+                                    const res2 = fetch(baseURL, {
+                                        method: 'POST',
+                                        headers: {
+                                            "Content-Type": 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            resp_cuest: [cnombre, cdni, csex, cbdate, ctel, cpeso, cestat, cs0, cn0, cobs0, cs1, cn1, cobs1,
+                                                cs2, cn2, cobs2, cs3, cn3, cobs3, cs4, cn4, cobs4, cs5, cn5, cobs5, cs6, cn6, cobs6, cs7, cn7, cobs7,
+                                                cs8, cn8, cobs8, cs9, cn9, cobs9, cs10, cn10, cobs10, cs11, cn11, cobs11, cs12, cn12, cobs12, cs13,
+                                                cn13, cobs13, cs14, cn14, cobs14, cs15, cn15, cobs15, cs16, cn16, cobs16, cs17, cn17, cobs17, cs18,
+                                                cn18, cobs18, cs19, cn19, cobs19, cs20, cn20, cobs20, cdate, dataURL],
+                                            replace: true
+                                        })
+                                    })
+                                        .then(response2 => response2.json())
+                                        .then(data2 => {
+                                            if (data2.status === "recieved") {
+                                                Swal.fire({
+                                                    title: 'Datos reemplazados correctamente',
+                                                    text: '',
+                                                    icon: 'success',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        window.parent.document.querySelector("iframe").src = "consentimiento.html"
+                                                    }
+                                                })
+                                            } else {
+                                                Swal.fire({
+                                                    title: 'Error al reemplazar datos',
+                                                    text: data2.message,
+                                                    icon: 'error',
+                                                })
+                                            }
+                                        })
+                                }
+                            })
+                        } else if (data.status === "recieved") {
+                            Swal.fire({
+                                title: 'Datos enviados correctamente',
+                                text: '',
+                                icon: 'success',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.parent.document.querySelector("iframe").src = "consentimiento.html"
+                                }
+                            })
+                        } else {
+                            Swal.fire({
+                                title: 'Error al enviar datos',
+                                text: data.message,
+                                icon: 'error',
+                            })
+                        }
+                    })
+            }
+        })
+    </script>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .column {
+            float: left;
+            width: 210pt;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        input {
+            height: 18px;
+            font-size: 14px;
+            line-height: 1.33333;
+            border-radius: 1px;
+        }
+    </style>
+</body>
+
+</html>

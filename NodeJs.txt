@@ -1,0 +1,26 @@
+__________________________________
+Crear Node Js server:
+--------------------------------
+mkdir <carpeta para server>
+cd
+npm init -y
+npm install express
+npm i --save-dev nodemon
+__________________________________
+Configurar server:
+---------------------------------
+server.js
+public
+¡Cambiar todas las IP!
+__________________________________
+Start server:
+---------------------------------
+node server.js
+___________________________________
+Install Service Windows:
+---------------------------------
+npm install -g node-windows
+npm install node-windows
+node service.js
+
+

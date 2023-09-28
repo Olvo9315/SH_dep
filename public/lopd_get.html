@@ -1,0 +1,484 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.3.5/signature_pad.min.js"
+    integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="index.html" id="index"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/signature_pad.umd.js"></script>
+<script src="js/sign-handler.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="TCPDF" />
+    <meta name="generator" content="Aspose.Words for .NET 22.7.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LOPD</title>
+    <style type="text/css">
+        body {
+            font-family: 'Times New Roman';
+            font-size: 12pt
+        }
+
+        p {
+            margin: 0pt
+        }
+
+        li {
+            margin-top: 0pt;
+            margin-bottom: 0pt
+        }
+    </style>
+</head>
+
+<body
+    style="margin: 15px auto; width:700px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:20px;
+    margin-top: 0px; margin-bottom: 2px; background-color: #fff">
+    <div id="all" style="width: 682px">
+        <p style="margin-top:4.5pt; margin-left:149.05pt; text-align:justify; line-height:12.15pt"><span
+                style="font-size:11pt">INFORMACIÓN AL PACIENTE</span><span
+                style="font-size:11pt; -aw-import:spaces">&#xa0; </span><span style="font-size:11pt">LOPD 3/2018 </span>
+        </p>
+        <p style="margin-top:22pt; text-align:justify; line-height:11.25pt"><span style="font-size:10pt">De
+                conformidad con la Ley Orgánica del 3/2018 del 5 de diciembre de 2018 de protección de datos de carácter
+                personal y Garantía de los Derechos Digitales, le informamos que los datos que usted nos facilite serán
+                incorporados al sistema de tratamiento</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">titularidad</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">de</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">CLINICA</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">DENTAL</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">SMILE</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">HOUSE,</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">SL,</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">con</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">C.I.F.</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">B40571341</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">y</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt">domicilio</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">en</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">CALLE</span><span style="font-size:10pt">
+                VISITACIÓN, 2 BJO-DCHA, VALENCIA, </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">CP</span><span style="font-size:10pt"> 46009, provincia de
+                Valencia con la finalidad </span><span style="font-size:10pt; letter-spacing:0.05pt">de:</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span></p>
+        <p
+            style="margin-top:0.85pt; margin-left:38.75pt; text-indent:-18pt; line-height:11.25pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'•'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:14.5pt">
+            <span style="-aw-import:ignore"><span style="font-size:10pt">•</span><span
+                    style="width:14.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;
+                </span></span><span style="font-size:10pt">Prestar adecuadamente los servicios sanitarios solicitados,
+                pudiendo </span><span style="font-size:10pt; letter-spacing:0.05pt">ser</span><span
+                style="font-size:10pt"> necesario recoger datos de contacto de terceros, tales como representantes
+                legales, tutores, o personas a cargo designadas por los mismos. </span>
+        </p>
+        <p
+            style="margin-top:0.85pt; margin-left:38.75pt; text-indent:-18pt; text-align:justify; line-height:11.25pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'•'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:14.5pt">
+            <span style="-aw-import:ignore"><span style="font-size:10pt">•</span><span
+                    style="width:14.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;
+                </span></span><span style="font-size:10pt">Todos los datos recogidos cuentan con </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">el</span><span style="font-size:10pt"> compromiso de
+                confidencialidad como profesionales de la sanidad, con las medidas de seguridad establecidas legalmente,
+                y bajo ningún </span><span style="font-size:10pt; letter-spacing:0.05pt">concepto</span><span
+                style="font-size:10pt"> </span><span style="font-size:10pt; letter-spacing:0.05pt">son</span><span
+                style="font-size:10pt"> cedidos o tratados por terceras personas, físicas o jurídicas, </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">sin</span><span style="font-size:10pt"> </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">el</span><span style="font-size:10pt"> previo
+                consentimiento paciente, tutor o representante legal, salvo en aquellos casos en los que fuere
+                imprescindible para la correcta prestación del servicio. </span>
+        </p>
+        <p
+            style="margin-top:0.65pt; margin-left:38.75pt; text-indent:-18pt; text-align:justify; line-height:11.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'•'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:14.5pt">
+            <span style="-aw-import:ignore"><span style="font-size:10pt">•</span><span
+                    style="width:14.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;
+                </span></span><span style="font-size:10pt">Los datos serán incluidos </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">en</span><span style="font-size:10pt"> </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">el</span><span style="font-size:10pt"> Tratamiento
+                denominado Sanitaria de CLINICA DENTAL SMILE HOUSE, SL, con la finalidad de gestión del tratamiento
+                médico, emisión de facturas, contacto..., todas las gestiones relacionadas con los pacientes. </span>
+        </p>
+        <p
+            style="margin-top:0.85pt; margin-left:38.75pt; text-indent:-18pt; text-align:justify; line-height:11.25pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'•'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:14.5pt">
+            <span style="-aw-import:ignore"><span style="font-size:10pt">•</span><span
+                    style="width:14.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;
+                </span></span><span style="font-size:10pt">Asimismo, </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">en</span><span style="font-size:10pt"> </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">caso</span><span style="font-size:10pt"> de que usted esté
+                interesado en formalizar una primera cita con nosotros, CLINICA DENTAL SMILE HOUSE, </span><span
+                style="font-size:10pt; letter-spacing:0.15pt">SL</span><span style="font-size:10pt"> tratará
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">sus</span><span style="font-size:10pt"> datos
+                para poder agendar </span><span style="font-size:10pt; letter-spacing:0.1pt">su</span><span
+                style="font-size:10pt"> cita en el horario que corresponda. A este respecto, </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">se</span><span style="font-size:10pt"> le informa de que
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">sus</span><span style="font-size:10pt"> datos
+                personales serán tratados en base a la relación precontractual que </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">se</span><span style="font-size:10pt"> pretende formalizar
+                al respecto. </span>
+        </p>
+        <p style="margin-top:11.25pt; line-height:11.5pt"><span style="font-size:10pt">Se informa </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">al</span><span style="font-size:10pt"> cliente la gestión
+                del cobro de dicho servicio a través del sistema de pago con tarjeta de crédito/débito (TPV) (si
+                procede). </span></p>
+        <p style="margin-top:11.45pt; text-align:justify; line-height:11.05pt"><span style="font-size:10pt">Por último,
+                atender y gestionar las reclamaciones de los interesados. (si procede) </span></p>
+        <p style="margin-top:10.7pt; text-align:justify; line-height:12.6pt"><span style="font-size:10pt">Sus datos
+                ser</span><span style="font-family:Calibri; font-size:10pt">á</span><span style="font-size:10pt">n
+                conservados durante </span><span style="font-size:10pt; letter-spacing:0.05pt">el</span><span
+                style="font-size:10pt"> plazo estrictamente necesario. Por lo tanto mantendremos </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">su</span><span style="font-size:10pt"> información personal
+                mientras exista una relación contractual y/o comercial con usted o mientras usted no ejerza </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">su</span><span style="font-size:10pt"> derecho de
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">supresión,</span><span style="font-size:10pt">
+                cancelación y/o limitación del tratamiento de </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">sus</span><span style="font-size:10pt"> datos. </span></p>
+        <p style="text-align:justify; line-height:11.25pt"><span style="font-size:10pt">En estos </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">casos,</span><span style="font-size:10pt"> mantendremos la
+                información debidamente bloqueada, </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">sin</span><span style="font-size:10pt"> darle ningún uso,
+                mientras pueda </span><span style="font-size:10pt; letter-spacing:0.05pt">ser</span><span
+                style="font-size:10pt"> necesaria para el ejercicio o defensa de reclamaciones o pueda derivarse algún
+                tipo de responsabilidad judicial, legal o contractual de </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">su</span><span style="font-size:10pt"> tratamiento, que
+                deba </span><span style="font-size:10pt; letter-spacing:0.05pt">ser</span><span style="font-size:10pt">
+                atendida y para lo cual sea necesaria </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">su</span><span style="font-size:10pt"> recuperación.
+            </span></p>
+        <p style="margin-top:11.15pt; text-align:justify; line-height:12.85pt"><span style="font-size:10pt">Se
+                proceder</span><span style="font-family:Calibri; font-size:10pt">á </span><span style="font-size:10pt">a
+                tratar los datos de manera l</span><span style="font-family:Calibri; font-size:10pt">í</span><span
+                style="font-size:10pt">cita, leal, transparente, adecuada, pertinente, limitada, exacta y actualizada.
+                Mientras no nos comunique lo contrario, entenderemos que </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">sus</span><span style="font-size:10pt"> datos no han
+                sido</span><span style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt">modificados</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">y que usted </span><span
+                style="font-size:10pt; letter-spacing:0.1pt">se</span><span style="font-size:10pt"> compromete a
+                notificarnos </span></p>
+        <p style="text-align:justify; line-height:12.55pt"><span style="font-size:10pt">cualquier variaci</span><span
+                style="font-family:Calibri; font-size:10pt">ó</span><span style="font-size:10pt">n. Se informa
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">al</span><span style="font-size:10pt"> integrante
+                que </span><span style="font-size:10pt; letter-spacing:0.05pt">sus</span><span style="font-size:10pt">
+                datos personales no serán comunicados a terceros, con </span><span
+                style="font-size:10pt; letter-spacing:0.4pt">la</span><span style="font-size:10pt"> salvedad de que
+                dicha comunicación de datos </span><span style="font-size:10pt; letter-spacing:0.05pt">este</span><span
+                style="font-size:10pt"> amparada </span><span
+                style="font-size:10pt; letter-spacing:0.05pt">en</span><span style="font-size:10pt"> una obligación
+                legal o cuando la prestación de un servicio implique la necesidad de una relación contractual con un
+                encargado de tratamiento </span></p>
+        <p style="margin-top:12.25pt; text-align:justify; line-height:12pt"><span style="font-size:10pt">De acuerdo con
+                los derechos que le confiere la normativa vigente podrá ejercer los derechos de acceso, rectificación,
+                limitación de</span><span style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt">tratamiento,</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">supresión,</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">portabilidad</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">y</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt">oposición</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">al</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">tratamiento</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">de</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">sus</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">datos</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">de</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt">carácter</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt">personal</span><span style="font-size:10pt; -aw-import:spaces">&#xa0;
+            </span><span style="font-size:10pt; letter-spacing:0.05pt">así</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">como</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">revocar</span><span
+                style="font-size:10pt; -aw-import:spaces">&#xa0; </span><span style="font-size:10pt">el consentimiento
+                prestado, dirigiendo </span><span style="font-size:10pt; letter-spacing:0.1pt">su</span><span
+                style="font-size:10pt"> petición a la dirección postal indicada o al correo electrónico</span><a
+                href="mailto:dr.chursin.d@gmail.com" style="text-decoration:none"><span
+                    style="font-size:10pt; color:#000000; -aw-import:spaces">&#xa0;</span><span
+                    style="font-size:10pt; text-decoration:underline; color:#0000ff">dr.chursin.d@gmail.com</span><span
+                    style="font-size:10pt; color:#000000"> </span></a><span style="font-size:10pt">y podrá dirigirse a
+                la Autoridad de Control competente para presentar la reclamación que considere oportuna. </span></p>
+        <p style="margin-top:22pt; margin-left:34pt; text-align:justify; line-height:11.05pt"><span
+                style="font-size:10pt; font-weight:bold">Nombre, apellidos, DNI y firma integrante (en caso de
+                menor</span><span style="font-size:10pt; font-weight:bold; -aw-import:spaces">&#xa0; </span><span
+                style="font-size:10pt; font-weight:bold">padre/madre o tutor legal) </span>
+        </p>
+    </div>
+    <div id="dnifirma">
+        <p>&#xa0;</p>
+        <div class="row">
+            <div class="column">
+                <span><input style="border:none" type="text" id="nombre_paciente" name="nombre_paciente" size="40"
+                        placeholder="Nombre........................................." /></span>
+                <p>&#xa0;</p>
+                <input style="border:none" type="text" id="dni" name="dni" size="20"
+                    placeholder="DNI...................." />
+            </div>
+            <div class="column">
+                <span>
+                    <canvas id="signature-pad" width="300" height="150"
+                        style="border: 1px solid rgb(255, 255, 255);"></canvas>
+                </span>
+            </div>
+        </div>
+    </div>
+    <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+    <button type="button" style="margin-top: 2%; margin-bottom: 3%" class="btn btn-dark" data-action="action-clear">
+        Clear
+    </button>
+    <div id="envalencia">
+        <p style="margin-top:12pt; margin-left:214.1pt; text-align:justify; line-height:11.05pt"><span
+                style="font-size:10pt">En Valencia a </span>
+            <span>
+                <input style="border:none" type="date" id="date" name="date">
+            </span>
+        </p>
+    </div>
+    <p>&#xa0;</p>
+    <p>&#xa0;</p>
+    <div style="display: inline-flex; gap: 10px;">
+        <!-- <button class="button-29" role="button" data-action="get_data">Cargar Datos</button> -->
+        <button class="button-29" role="button" data-action="actualizar_data">Actualizar</button>
+        <button class="button-29" role="button" data-action="action-pdf">Descargar PDF</button>
+    </div>
+    <style>
+        .column {
+            float: left;
+            width: 240pt;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <script>
+        var clearBtn = document.querySelector("[data-action=action-clear]");
+        var actualizar = document.querySelector("[data-action=actualizar_data]");
+        var cargar_datos = document.querySelector("[data-action=get_data]");
+        var createPDFBtn = document.querySelector("[data-action=action-pdf]");
+        var canvas = document.getElementById("signature-pad");
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'rgb(250,250,250)'
+        });
+
+        canvas.getContext("2d");
+
+        const data = signaturePad.toDataURL();
+        var strimg = data.replace("data:image/png;base64,", "");
+
+        var imsrc = "data:image/jpeg;base64,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"
+
+
+        //clearing the signature drawing
+        clearBtn.addEventListener("click", function (event) {
+            if (signaturePad.isEmpty()) {
+                alert("Please sign first.");
+            } else {
+                signaturePad.clear();
+            }
+        });
+
+        const baseURL = 'http://127.0.0.1:7979/lopd_get'
+        //const baseURL = 'http://172.30.16.1:7979/lopd_get'
+        //cargar_datos.addEventListener("click", async function (event) {
+        //    event.preventDefault()
+        //    const res = await fetch(baseURL, {
+        //        method: 'GET',
+        //    })
+        //    //console.log(res)
+        //    const data = await res.json()
+        //    document.getElementById("nombre_paciente").value = data.info.nombre;
+        //    document.getElementById("dni").value = data.info.dni;
+        //    document.getElementById("date").value = data.info.fecha;
+        //    var context = canvas.getContext('2d');
+        //    var imageObj = new Image();
+        //    imageObj.onload = function () {
+        //        context.drawImage(this, 0, 0);
+        //    };
+        //    imageObj.src = data.info.firma;
+        //});
+
+            // --- Función para cargar los datos desde la BD --- //
+        async function cargar_desde_main() {
+            const res = await fetch(baseURL, {
+                method: 'GET',
+            })
+            //console.log(res)
+            const data = await res.json()
+            document.getElementById("nombre_paciente").value = data.info.nombre;
+            document.getElementById("dni").value = data.info.dni;
+            document.getElementById("date").value = data.info.fecha;
+            var context = canvas.getContext('2d');
+            var imageObj = new Image();
+            imageObj.onload = function () {
+                context.drawImage(this, 0, 0);
+            };
+            imageObj.src = data.info.firma;
+        }
+            // --- Botón "Descargar PDF" --- //
+        createPDFBtn.addEventListener("click", function (event) {
+            window.html2canvas = html2canvas;
+            window.jsPDF = window.jspdf.jsPDF;
+
+            var doc = new jsPDF({
+                orientation: "p",
+                unit: "pt",
+                format: "a4",
+            });
+
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            }
+            doc.html(document.getElementById("all"), {
+                callback: function (doc) {
+
+                    doc.html(document.getElementById("dnifirma"), {
+                        callback: function (doc) {
+
+                            doc.html(document.getElementById("envalencia"), {
+                                callback: function (doc) {
+                                    //doc.setPage(1);
+                                    //doc.addImage(imsrc, 'PNG', 10, 10, 96, 96);
+                                    doc.save(document.getElementById('nombre_paciente').value + ' LOPD.pdf');
+                                }, y: 736,
+                                margin: 20,
+                                html2canvas: { scale: 0.8 },
+                            });
+                        }, y: 618,
+                        margin: 20,
+                        html2canvas: { scale: 0.8 },
+                    });
+                },
+                margin: 20,
+                html2canvas: { scale: 0.8 },
+            })
+        })
+
+        // --- Botón "Actualizar" ----//
+        const baseURLpost = 'http://127.0.0.1:7979/lopd_post'
+        actualizar.addEventListener("click", async function (event) {
+
+            var dataURL = canvas.toDataURL();
+
+            window.html2canvas = html2canvas;
+            window.jsPDF = window.jspdf.jsPDF;
+
+            var doc = new jsPDF({
+                orientation: "p",
+                unit: "pt",
+                format: "a4",
+            });
+
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            }
+
+            const cnombre = document.getElementById("nombre_paciente").value;
+            const cDNI = document.getElementById("dni").value;
+            const cdate = document.getElementById("date").value;
+
+            event.preventDefault()
+            if (cnombre == '') {
+                faltandatos("nombre_paciente")
+            }
+            else if (cDNI == '') {
+                faltandatos("dni")
+            }
+            else if (cdate == '') {
+                faltandatos("date")
+            }
+            else if (dataURL == 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGlJREFUeF7t1MEJADAMA7Fm/43zaaFbHCgTGDl4dvceR4AAgYDAGKxASyISIPAFDJZHIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRB4xA9Nk8FyUMcAAAAASUVORK5CYII=') {
+                faltandatos("signature-pad")
+            }
+            else {
+                const res = fetch(baseURLpost, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": 'application/json'
+                    },
+                    body: JSON.stringify({
+                        resp_lopd: [cnombre, cDNI, dataURL, cdate],
+                    })
+                }).then(response => response.json())
+                    .then(data => {
+                        if (data.status === "existing") {
+                            Swal.fire({
+                                title: 'Los datos ya existen',
+                                text: '¿Desea reemplazarlos?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Sí, reemplazar',
+                                cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                                if (result.value) {
+                                    // Reemplazar los datos
+                                    const res2 = fetch(baseURLpost, {
+                                        method: 'POST',
+                                        headers: {
+                                            "Content-Type": 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            resp_lopd: [cnombre, cDNI, dataURL, cdate],
+                                            replace: true
+                                        })
+                                    })
+                                        .then(response2 => response2.json())
+                                        .then(data2 => {
+                                            if (data2.status === "recieved") {
+                                                Swal.fire({
+                                                    title: 'Datos reemplazados correctamente',
+                                                    text: '',
+                                                    icon: 'success',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        window.parent.document.querySelector("iframe").src = "cuestionario.html"
+                                                    }
+                                                })
+                                            } else {
+                                                Swal.fire({
+                                                    title: 'Error al reemplazar datos',
+                                                    text: data2.message,
+                                                    icon: 'error',
+                                                })
+                                            }
+                                        })
+                                }
+                            })
+                        } else if (data.status === "recieved") {
+                            Swal.fire({
+                                title: 'Datos enviados correctamente',
+                                text: '',
+                                icon: 'success',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.parent.document.querySelector("iframe").src = "cuestionario.html"
+                                }
+                            })
+                        } else {
+                            Swal.fire({
+                                title: 'Error al enviar datos',
+                                text: data.message,
+                                icon: 'error',
+                            })
+                        }
+                    })
+            }
+        })
+    </script>
+    <style>
+        input {
+            height: 20px;
+            font-size: 14px;
+            line-height: 1.33333;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+
+</html>

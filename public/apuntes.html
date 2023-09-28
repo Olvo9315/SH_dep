@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<script src="index.html" id="index"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body
+    style="margin: 15px auto; width:700px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:20px;
+    margin-top: 0px; margin-bottom: 2px; background-color: #fff">
+    <div>
+        <button onclick="activarDibujo()"><i class="fas fa-pen"></i> Dibujar</button>
+        <button onclick="activarEscritura()"><i class="fas fa-font"></i> Escribir</button>
+        <input type="color" id="colorPicker" value="#000000"
+            style="margin: 0 10px; height: 40px;width: 40px;padding: 0;border: none;vertical-align: middle; ">
+        <span style="float: right;">
+            <button onclick="deshacer()"><i class="fas fa-undo"></i> Deshacer</button>
+            <button id="limpiarBtn" onclick="limpiar()"><i class="fas fa-trash-alt"></i> Limpiar</button>
+        </span>
+    </div>
+    <div id="contenido">
+        <div style="text-align: center; margin-top: 10px">
+            <span id="nombre_apuntes" style="text-align: center; font-size: 24pt; color: rgb(0, 0, 0)">
+            </span>
+            <span id="dni_apuntes" style="display: none;">
+            </span>
+        </div>
+
+        <canvas id="canvas" width="700" height="900"></canvas>
+    </div>
+    <div style="display: inline-flex; gap: 10px;">
+        <button class="button-29" role="button" data-action="actualizar_data">Guardar</button>
+        <button class="button-29" role="button" data-action="action-pdf">Descargar PDF</button>
+    </div>
+
+    <script>
+        var actualizar = document.querySelector("[data-action=actualizar_data]");
+        var createPDFBtn = document.querySelector("[data-action=action-pdf]");
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var dibujando = false;
+        var escribiendo = false;
+        var seleccionando = false;
+        var moviendo = false;
+        var x1, y1, x2, y2;
+        var ultimosDibujos = [];
+        var indice = -1;
+
+        function activarDibujo() {
+            dibujando = true;
+            escribiendo = false;
+        }
+
+        function activarEscritura() {
+            escribiendo = true;
+            dibujando = false;
+        }
+
+        canvas.addEventListener('mousedown', function (event) {
+            if (dibujando) {
+                ctx.beginPath();
+                ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop + window.pageYOffset);
+                ctx.strokeStyle = document.getElementById('colorPicker').value;
+            }
+            else if (escribiendo) {
+                seleccionando = true;
+                x1 = event.clientX - canvas.offsetLeft;
+                y1 = event.clientY - canvas.offsetTop + window.pageYOffset;
+            }
+        });
+
+        canvas.addEventListener('touchstart', function (event) {
+            event.preventDefault();
+            if (dibujando) {
+                ctx.beginPath();
+                ctx.moveTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop + window.pageYOffset);
+                ctx.strokeStyle = document.getElementById('colorPicker').value;
+            }
+            else if (escribiendo) {
+                seleccionando = true;
+                x1 = event.touches[0].clientX - canvas.offsetLeft;
+                y1 = event.touches[0].clientY - canvas.offsetTop + window.pageYOffset;
+            }
+        });
+
+        canvas.addEventListener('mousemove', function (event) {
+            if (dibujando && event.buttons === 1) {
+                ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop + window.pageYOffset);
+                ctx.stroke();
+            }
+            else if (escribiendo && seleccionando) {
+                moviendo = true;
+                x2 = event.clientX - canvas.offsetLeft;
+                y2 = event.clientY - canvas.offsetTop + window.pageYOffset;
+                ctx.putImageData(ultimosDibujos[indice], 0, 0);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+                ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
+            }
+        });
+
+        canvas.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            if (dibujando && event.touches.length === 1) {
+                ctx.lineTo(event.touches[0].clientX - canvas.offsetLeft, event.touches[0].clientY - canvas.offsetTop + window.pageYOffset);
+                ctx.stroke();
+            }
+            else if (escribiendo && seleccionando) {
+                moviendo = true;
+                x2 = event.touches[0].clientX - canvas.offsetLeft;
+                y2 = event.touches[0].clientY - canvas.offsetTop + window.pageYOffset;
+                ctx.putImageData(ultimosDibujos[indice], 0, 0);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+                ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
+            }
+        });
+
+        canvas.addEventListener('mouseup', function (event) {
+            if (dibujando) {
+                ctx.closePath();
+                ultimosDibujos.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+                indice++;
+            }
+            else if (escribiendo && seleccionando) {
+                if (!moviendo) {
+                    x2 = canvas.offsetWidth;
+                    y2 = event.clientY - canvas.offsetTop + window.pageYOffset;
+                }
+                moviendo = false;
+                seleccionando = false;
+                var texto = prompt('Ingrese el texto que desea escribir:');
+                if (texto) {
+                    ctx.font = '20px Arial';
+                    ctx.fillStyle = document.getElementById('colorPicker').value;
+                    // Calcular el ancho y la altura del campo de selección
+                    var width = Math.abs(x2 - x1);
+                    var height = Math.abs(y2 - y1);
+                    // Dividir el texto en líneas según el ancho del campo de selección
+                    var lineas = dividirTexto(texto, width, ctx.font);
+                    // Calcular la altura del texto
+                    var lineHeight = parseInt(ctx.font);
+                    // Ajustar el texto verticalmente para que esté centrado en el campo de selección
+                    var y = Math.min(y1, y2) + lineHeight;
+                    // Escribir cada línea de texto en el canvas
+                    for (var i = 0; i < lineas.length; i++) {
+                        ctx.fillText(lineas[i], Math.min(x1, x2), y + lineHeight * i);
+                    }
+                    ultimosDibujos.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+                    indice++;
+                }
+                ctx.putImageData(ultimosDibujos[indice], 0, 0);
+            }
+        });
+
+        canvas.addEventListener('touchend', function (event) {
+            event.preventDefault();
+            if (dibujando) {
+                ctx.closePath();
+                ultimosDibujos.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+                indice++;
+            }
+            else if (escribiendo && seleccionando) {
+                if (!moviendo) {
+                    x2 = canvas.offsetWidth;
+                    y2 = event.touches[0].clientY - canvas.offsetTop + window.pageYOffset;
+                }
+                moviendo = false;
+                seleccionando = false;
+                var texto = prompt('Ingrese el texto que desea escribir:');
+                if (texto) {
+                    ctx.font = '20px Arial';
+                    ctx.fillStyle = document.getElementById('colorPicker').value;
+                    // Calcular el ancho y la altura del campo de selección
+                    var width = Math.abs(x2 - x1);
+                    var height = Math.abs(y2 - y1);
+                    // Dividir el texto en líneas según el ancho del campo de selección
+                    var lineas = dividirTexto(texto, width, ctx.font);
+                    // Calcular la altura del texto
+                    var lineHeight = parseInt(ctx.font);
+                    // Ajustar el texto verticalmente para que esté centrado en el campo de selección
+                    var y = Math.min(y1, y2) + lineHeight;
+                    // Escribir cada línea de texto en el canvas
+                    for (var i = 0; i < lineas.length; i++) {
+                        ctx.fillText(lineas[i], Math.min(x1, x2), y + lineHeight * i);
+                    }
+                    ultimosDibujos.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+                    indice++;
+                }
+                ctx.putImageData(ultimosDibujos[indice], 0, 0);
+            }
+        });
+
+        function dividirTexto(texto, width, font) {
+            var palabras = texto.split(' ');
+            var lineas = [];
+            var linea = '';
+            var test = '';
+            var ctx = canvas.getContext('2d');
+            ctx.font = font;
+            for (var i = 0; i < palabras.length; i++) {
+                test = linea + palabras[i] + ' ';
+                if (ctx.measureText(test).width > width) {
+                    lineas.push(linea);
+                    linea = palabras[i] + ' ';
+                } else {
+                    linea = test;
+                }
+            }
+            lineas.push(linea);
+            return lineas;
+        }
+
+        function deshacer() {
+            if (indice > 0) {
+                indice--;
+                ultimosDibujos.pop();
+                ctx.putImageData(ultimosDibujos[indice], 0, 0);
+            }
+        }
+
+        function limpiar() {
+            if (confirm("¿Está seguro que desea borrar todo?")) {
+                ultimosDibujos = [];
+                indice = -1;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        // Cargar datos
+        const baseURL = 'http://127.0.0.1:7979/apuntes_get'
+        //const baseURL = 'http://192.168.0.12:7979/apuntes_get'
+        async function cargar_desde_main() {
+            const res = await fetch(baseURL, {
+                method: 'GET',
+            })
+            //console.log(res)
+            const data = await res.json()
+            document.getElementById("nombre_apuntes").innerHTML = data.info.nombre;
+            document.getElementById("dni_apuntes").innerHTML = data.info.dni;
+            var context = canvas.getContext('2d');
+            var imageObj = new Image();
+            imageObj.onload = function () {
+                context.drawImage(this, 0, 0);
+            };
+            imageObj.src = data.info.apunte;
+        }
+        // --- Botón "Actualizar" ----//
+        const baseURLpost = 'http://127.0.0.1:7979/apuntes'
+        //const baseURLpost = 'http://192.168.0.12:7979/apuntes'
+        actualizar.addEventListener("click", async function (event) {
+            var canvas = document.getElementById('canvas');
+            var dataURL = canvas.toDataURL();
+            var a_nombre = document.getElementById("nombre_apuntes").innerHTML;
+            var a_dni = document.getElementById("dni_apuntes").innerHTML;
+
+            const res = fetch(baseURLpost, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify({
+                    r_apuntes: [a_nombre, a_dni, dataURL],
+                })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.status === "existing") {
+                        Swal.fire({
+                            title: 'Los datos ya existen',
+                            text: '¿Desea reemplazarlos?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Sí, reemplazar',
+                            cancelButtonText: 'Cancelar'
+                        }).then((result) => {
+                            if (result.value) {
+                                // Reemplazar los datos
+                                const res2 = fetch(baseURLpost, {
+                                    method: 'POST',
+                                    headers: {
+                                        "Content-Type": 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        r_apuntes: [a_nombre, a_dni, dataURL],
+                                        replace: true
+                                    })
+                                })
+                                    .then(response2 => response2.json())
+                                    .then(data2 => {
+                                        if (data2.status === "recieved") {
+                                            Swal.fire({
+                                                title: 'Datos reemplazados correctamente',
+                                                text: '',
+                                                icon: 'success',
+                                            })
+                                        } else {
+                                            Swal.fire({
+                                                title: 'Error al reemplazar datos',
+                                                text: data2.message,
+                                                icon: 'error',
+                                            })
+                                        }
+                                    })
+                            }
+                        })
+                    } else if (data.status === "recieved") {
+                        Swal.fire({
+                            title: 'Datos enviados correctamente',
+                            text: '',
+                            icon: 'success',
+                        })
+                    } else {
+                        Swal.fire({
+                            title: 'Error al enviar datos',
+                            text: data.message,
+                            icon: 'error',
+                        })
+                    }
+                })
+        })
+        // --- Botón "Descargar PDF" --- //
+        createPDFBtn.addEventListener("click", function (event) {
+            window.html2canvas = html2canvas;
+            window.jsPDF = window.jspdf.jsPDF;
+            canvas.getContext("2d");
+
+            var doc = new jsPDF({
+                orientation: "p",
+                unit: "pt",
+                format: "a4",
+            });
+
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            }
+
+            html2canvas(document.getElementById("contenido"), {
+                scale: 1, // opcional: ajustar la escala de la imagen
+                useCORS: true, // opcional: habilitar el soporte CORS para imágenes externas
+            }).then(function (canvas) {
+                // Agregar la imagen de la captura de pantalla al documento PDF
+                var imgData = canvas.toDataURL('image/png');
+                doc.addImage(imgData, 'PNG', 20, 20, 560, 755); // ajustar el tamaño según sea necesario
+                // Guardar el documento PDF con el nombre proporcionado
+                doc.save(document.getElementById('nombre_apuntes').innerHTML + '_apunets.pdf');
+            })
+
+
+            //doc.html(document.getElementById("contenido"), {
+            //    callback: function (doc) {
+            //        doc.save(document.getElementById('nombre_apuntes').innerHTML + '_apunets.pdf');
+            //    },
+            //    margin: 20,
+            //    html2canvas: { scale: 0.8 },
+            //})
+        })
+
+    </script>
+    <style>
+        /* Estilo para los botones */
+        button {
+            background-image: radial-gradient(100% 100% at 100% 0, #b0eeff 0, #bdc5ff 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #444;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Estilo para los botones cuando se les pasa el mouse por encima */
+        button:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        /* Estilo para el botón de Limpiar */
+        #limpiarBtn {
+            background-color: #ff5252;
+            color: #444;
+        }
+
+        /* Estilo para el botón de Limpiar cuando se le pasa el mouse por encima */
+        #limpiarBtn:hover {
+            color: #ff6b6b;
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+    </style>
+
+</body>
+
+</html>

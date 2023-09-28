@@ -1,0 +1,1351 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="cdns/signature_pad.min.js"
+    integrity="sha512-kw/nRM/BMR2XGArXnOoxKOO5VBHLdITAW00aG8qK4zBzcLVZ4nzg7/oYCaoiwc8U9zrnsO9UHqpyljJ8+iqYiQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="index.html" id="index"></script>
+<script src="cdns/sweetalert2@11.js"></script>
+<script src="js/signature_pad.umd.js"></script>
+<script src="js/sign-handler.js"></script>
+<script src="cdns/jspdf.umd.min.js"></script>
+<script src="cdns/html2canvas.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="TCPDF" />
+    <meta name="generator" content="Aspose.Words for .NET 22.7.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Consentimiento</title>
+    <style type="text/css">
+        body {
+            font-family: 'Times New Roman';
+            font-size: 12pt
+        }
+
+        p {
+            margin: 0pt
+        }
+
+        li {
+            margin-top: 0pt;
+            margin-bottom: 0pt
+        }
+    </style>
+</head>
+
+<body
+    style="margin: 15px auto; width:700px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; padding:20px;
+    margin-top: 0px; margin-bottom: 2px; background-color: #fff">
+    <div id="all" style="width: 700px">
+        <div id="hoja1" style="width: 700px">
+            <div id="head" style="-aw-headerfooter-type:header-primary; clear:both">
+                <p style="margin-left:83.65pt; text-align:justify; line-height:8.85pt">
+                    <span style="height:0pt; text-align:left; display:block; position:absolute; z-index:-65538">
+                        <img src="data:image/jpeg;base64,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"
+                            width="96" height="96" alt=""
+                            style="margin-top:-0.27pt; margin-left:-83.64pt; -aw-left-pos:17.01pt; -aw-rel-hpos:page; -aw-rel-vpos:paragraph; -aw-top-pos:-0.27pt; -aw-wrap-type:none; position:absolute" /></span>
+                    <span style="font-size:8pt">Smile House, B40571341</span>
+                </p>
+                <p style="margin-left:83.65pt; text-align:justify; line-height:10pt">
+                    <span style="font-size:8pt">calle Visitación 1 bajo derecho </span>
+                </p>
+                <p style="margin-right:326.15pt; margin-left:83.65pt; line-height:10pt">
+                    <span style="font-size:8pt">46009 Valencia, VALENCIA/VALÈNCIA Teléfono: 961147631</span>
+                </p>
+                <p style="margin-left:83.65pt; text-align:justify; line-height:10pt">
+                    <span style="font-size:8pt">Web: smilehouse.es</span>
+                </p>
+            </div>
+            <p>&#xa0;</p>
+            <div><span id="in1">
+                    <p style="margin-top:0.3pt; margin: left 50%;; text-align:center; line-height:11.05pt">
+                        <span style="font-size:10pt">CONSENTIMIENTO INFORMADO GENERAL</span>
+                    </p>
+                    <p style="margin-top:13.95pt; margin: left 50%;; text-align:center; line-height:11.05pt">
+                        <span style="font-size:10pt">CONSENTIMIENTO INFORMADO PARA TRATAMIENTOS DENTALES </span>
+                    </p>
+                    <p>&#xa0;</p>
+                    <p style="margin-left:2.85pt; line-height:12.5pt">
+                        <span style="font-size:10pt">Para satisfacción de los Derechos del Paciente, como instrumento
+                            favorecedor
+                            del correcto uso de los Procedimientos Terapéuticos y Diagnósticos, y en cumplimiento de la
+                            Ley
+                            General
+                            de Sanidad y la Ley 41/2002: </span>
+                </span></div>
+            <span>Yo,D/Da </span>
+            <input style="border:none" type="text" id="nombre_paciente" name="nombre_paciente" size="80"
+                placeholder="................................................................................................................................................................" />
+            <span style="font-size:10pt">como paciente o D/Da</span>
+            <input style="border:none" type="text" id="nombre_representante" name="nombre_representante" size="80"
+                placeholder="................................................................................................................................................................" />
+            <span style="font-size:10pt">como su representante legal en pleno uso de mis
+                facultades, libre y voluntariamente</span>
+            </span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">Declaro: Que el Dr/a</span>
+                <input style="border:none" type="text" id="nombre_doctor" name="nombre_doctor" size="80"
+                    placeholder="................................................................................................................................................................" />
+            <div id="in5"><span style="font-size:10pt">me ha explicado, en términos asequibles la naturaleza exacta del
+                    procedimiento al que me va a someter y la nececidad del mismo. He tenido la oportunidad de discutir
+                    con
+                    el facultativo como se va a efectuar, su proposito, las posibles consecuencias de no realizar el
+                    tratamiento, las complicaciones y los riesgos que de él pueden derivarse. 1. ANESTESIA LOCAL -EI
+                    propósito principal de la anestesia es realizar el tratamiento sin dolor. -Consiste en proporcionar,
+                    mediante una o varias inyecciones, sustancias que provocan un bloqueo reversible de los impulsos
+                    nerviosos, de tal manera que se interrumpe transitoriamente la función sensitiva.</span></p>
+                <p style="margin-right:8.15pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Se
+                        me
+                        ha explicado que tendré la sensación de acorchamiento del labio y/o cara durante unas horas,
+                        desapareciendo esta sensación de manera espontánea.</span></p>
+                <p style="margin-left:2.85pt; text-align:justify; line-height:12.5pt"><span style="font-size:10pt">-La
+                        administración de la anestesia puede provocar, dependiendo de la zona de administracion,
+                        ulceración
+                        de la mucosa, dolor, hematoma y, en algunas ocasiones limitaciones en el movimiento de apertura
+                        de
+                        la boca, que pueden requerir tratamiento ulterior. Así mismo puede provocar bajada de tensión y
+                        sensación de mareo.</span></p>
+                <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Comprendo que de mis
+                        antecedentes personales no se deducen posibles alergias o hipersensibilidad al agente
+                        anestésico,
+                        pero la anestesia puede provocarme urticaria, dermatitis de contacto o general, asma, edemas
+                        angioneurótico, que, en casos extremos, pueden requerir tratamiento urgente.2. RADIOLOGÍA -EI
+                        propósito principal de esta prueba diagnóstica es obtener una imagen detallada de una
+                        determinada
+                        zona de la cavidad oral (radiografía periapical), de la zona posterior de los cuatro cuadrantes
+                        en
+                        los que se divide la boca (radlografla de aleta de mordida), de la cavidad oral en su totalidad
+                        (ortopantomografía) en las que observaremos las diferentes piezas dentarias y tejidos que las
+                        rodean.</span></p>
+                <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Se incluye dentro de
+                        este
+                        apartado la tomografla axial computerizada (TAC) previa a realización de cirugía de implantes
+                        dentales y otros procedimientos que así Io requieran para su correcto y preciso
+                        diagnóstico.</span>
+                </p>
+                <p style="margin-right:8.35pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Me
+                        han
+                        explicado que el objetivo de estas técnicas es conseguir una imagen que nos permita diagnosticar
+                        diferentes patologías, como son la caries, procesos infecciosos y otros.</span></p>
+                <p style="margin-right:12pt; margin-left:2.85pt; line-height:12.5pt"><span
+                        style="font-size:10pt">-Comprendo
+                        que la exposición a la radiación utilizando este tipo de técnicas radiográficas es muy baja
+                        aunque
+                        el facultativo intentara hacer siempre el menor nomero de placas posible.</span></p>
+                <p style="margin-right:1.75pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Me
+                        han
+                        explicado que durante la radiograía debo estar solo en la consulta o sala de rayos sin moverme
+                        sujetando la placa como me ha explicado el personal sanitario. En el caso de que no pudiera
+                        realizar
+                        este procedimiento yo solo, necesitaría la ayuda de un familiar que nunca seria una mujer
+                        embarazada.</span></p>
+                <p style="margin-right:8.65pt; margin-left:2.85pt; line-height:12.5pt"><span
+                        style="font-size:10pt">-Igualmente comprendo que se trata de un procedimiento que puede ser
+                        realizado por un/a odontólogo o bien por otro tipo de personal sanitario debidamente
+                        autorizado.</span></p>
+                <p style="margin-right:7.05pt; margin-left:2.85pt; line-height:12.5pt"><span
+                        style="font-size:10pt">-También
+                        me han advertido de que existen elementos que tienen por objetivo reducir la dosis de radiación
+                        sobre zonas importantes del organismo como pueden ser los delantales plomados y protectores
+                        tiroideos.</span></p>
+                <ol start="3" type="1" style="margin:0pt; padding-left:0pt">
+                    <li
+                        style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                        <span>TARTRECTOMÍA</span>
+                    </li>
+                </ol>
+                <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-EI propósito principal
+                        de la
+                        intervención es la eliminación del sarro o cálculo que se encuentra adherido a la superficie de
+                        los
+                        dientes. -Me han explicado que este sarro o cálculo es un factor irritante que en el caso de no
+                        eliminarlo dará Iugar a una inflamación de las encías (gingivitis) que se manifestara con dolor,
+                        hinchazón y sangrado de las mismas.</span></p>
+                <p style="margin-right:9.55pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-La
+                        técnica se lleva a cabo mediante un aparato de ultrasonidos que produce una vibración que hace
+                        desprender el cálculo del diente o bien de forma manual mediante instrumental específico.</span>
+                </p>
+                <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Comprendo que aunque no
+                        es
+                        una técnica dolorosa, si puede resultar en algunos casos molesta dependiendo de la sensibilidad
+                        dentaria de cada persona.</span></p>
+                <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-También sé que la
+                        tartrectomía o Iimpieza dental professional puede ser realizada por un odontólogo/a o por un/a
+                        higienista dental. -Entiendo que como medida complementaria para la prevención de las
+                        enfermedades
+                        de la encía son necesarias las revisiones periódicas y el mantenimiento de una estricta higiene
+                        oral.</span></p>
+            </div>
+        </div>
+        <div id="hoja2">
+            <ol start="4" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>CURETAJE O RÁSPADO Y ALISADO RADICULAR</span>
+                </li>
+            </ol>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">- El propósito principal
+                    de
+                    la intervención es la eliminación de los factores irritantes e infecciosos advertidos en los
+                    tejidos
+                    de soporte de los dientes (encías, hueso alveolar, ligamento periodontal, cemento radicular),
+                    para
+                    conseguir el mantenimiento de los dientes en tiempo, función y estética, evitando movilidad,
+                    pérdida
+                    de hueso y caída de los dientes. -Me han explicado que el tratamiento que voy a recibir implica
+                    administración de anestesia local.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Comprendo que aunque se me han practicado los medios diagnosticos que se
+                    han
+                    estimado precisos, pueden producirse procesos edematosos, inflamación, dolor o laceraciones en
+                    la mucosa del labio o
+                    mejilla, o en la lengua, que no dependen de la técnica empleada sino que son imprevisibles
+                    aunque
+                    relativamente frecuentes.</span></p>
+            <p style="margin-right:5.9pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Es
+                    frecuente que después del tratamiento advierta un aumento de la sensibilidad dentaria o
+                    movilidad
+                    que normalmente desaparecerán bien espontáneamente o bien por tratamiento posterior.</span></p>
+            <p style="margin-right:3.95pt; margin-left:2.85pt; line-height:12.5pt"><span
+                    style="font-size:10pt">-Comprendo que el tratamiento puede extenderse hasta un año o mas, en
+                    cuyo
+                    transcurso deberé visitar al odontólogo periódicamente y cuidar especialmente la higiene
+                    dental.</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Comprendo que el
+                    objetivo
+                    perseguido pueda no obtenerse, total o parcialmente, con independencia de la técnica empleada y
+                    de
+                    que sin esmerada contribución en el control de placa, mediante la higiene, los objetivos
+                    perseguidos
+                    no se pueden conseguir.</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Me han explicado que
+                    existe
+                    la posibilidad de producirse un cierto alargamiento dentario, más perceptible al sonreír, como
+                    consecuencia prácticamente segura de haberse eliminado tejido enfermo.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">5.0DONTOLOGÍA CONSERVADORA</span></p>
+            <p style="margin-right:16.7pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Es
+                    un
+                    procedimiento mediante el cual se eliminarán los tejidos cariados de las piezas dentales y se
+                    restituirá la forma del diente con materiales odontológicos de relleno que sellan herméticamente
+                    la
+                    cavidad resultante.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Esta intervención puede originar sensibilidad de la pieza tratada
+                    durante un
+                    periodo de tiempo.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Puede haber alteraciones de la pulpa dental por el proceso carioso,
+                    teniendo
+                    que ser necesaria una endodoncia.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-En casos de caries muy extensas y profundas puede ser necesario la
+                    colocación de una corona artificial para reducir el riesgo de fractura.</span></p>
+            <ol start="6" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>ENDODONCIA</span>
+                </li>
+            </ol>
+            <p style="margin-right:19.2pt; margin-left:2.85pt; line-height:12.5pt"><span
+                    style="font-size:10pt">-Consiste en la extirpación de la pulpa dental para conseguir el sellado
+                    hermético del espacio pulpar, dejándolo aislado del resto del organismo gracias a materiales
+                    termoplásticos, Io que evitará el paso de gérmenes y exudado.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Debo saber:</span></p>
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Si el diente a tratar lleva colocada una corona de
+                    porcelana o bien de metal porcelana será necesario retirarla o atravesarla para llevar a cabo
+                    dicha
+                    endodoncia, exlstiendo un riesgo de fractura.</span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Durante la preparación de los conductos pueden surgir
+                    inconvententes no detectables hasta ese momento anatomía compleja o la presencia de
+                    calclflcaclones
+                    o contratiempos como la aparición de una inflamación reactiva o la fractura de algún instrumento
+                    que
+                    podría impedir culminar una endodoncia ya iniclada, en cuyo caso sería necesario extraer el
+                    diente.</span>
+            </p>
+            <p
+                style="margin-right:10.6pt; margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">EI éxito de la endodoncia dependerá de muchos
+                    factores,
+                    entre ellos mi estado de salud, las condiciones de mi diente, la reacción de cicatrización de
+                    mis
+                    tejidos periodontales o existencia de micro-fisuras previas.</span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Una vez terminado el tratamiento de conductos puede
+                    quedar alguna sensibilidad al tacto en el diente tratado, que suele durar unos dias e incluso
+                    semanas, debido a la reacción de cicatrización de los tejidos de soporte dentario. Si fuera
+                    necesario se me recetaria una medicación adecuada al caso.</span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">A pesar de una endodoncia correcta, debido a hábitos
+                    bruxistas o exceso de presión accidental en la masticación, el diente puede llegar a
+                    fracturarse,
+                    por Io que será necesario reconstruir ese diente en el plazo fijado por el odontólogo.</span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:2.85pt; text-indent:-0pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">En caso de que una endodoncia no consiga su objetivo,
+                    puede ser necesario una reendodoncia o una cirug[a periapical.</span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:2.85pt; text-indent:-0pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Deberé volver a la consulta para el control en los
+                    tiempos estimados por el odontólogo.</span>
+            </p>
+            <ol start="7" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>PRÓTESIS FIJA</span>
+                </li>
+            </ol>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Es un tratamiento
+                    mediante
+                    símiles dentarios (de metal porcelana, zirconio porcelana, porcelana total o cualquier otro
+                    material
+                    dental apto para tal fin) que se confeccionan a medida y se cementan en los dientes naturales
+                    que
+                    han sido previamente desgastados, dañados, reconstruidos después del tratamiento de la caries y
+                    su
+                    complicaciones. Con ello se consigue una masticación casi natural y un habla casi adecuada
+                    aunque no
+                    permite cerrar los espacios que pudieran haberse creado entre los dientes cuando han menguado
+                    las
+                    encias.</span></p>
+            <p style="margin-right:15.05pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Con el
+                    tiempo, el proceso de atrofia natural deja a la vista juntas entre dientes y coronas(fundas),
+                    por Io
+                    que estrictamente puede ser necesario el remplazo.</span></p>
+            <p style="margin-right:3.9pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Otras
+                    causas de sustitución pueden ser: lesiones irrecuperables en dientes de sujeción, cambios en los
+                    maxilares y en la posici6n de los dientes naturales.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Se puede tener la impresión de dientes demasiado grandes, diferencia de
+                    tamaño, color y forma en comparación con los naturales.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Es probable que se muerda fácilmente las mejillas y la lengua en los
+                    primeros días.</span></p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt"><span
+                    style="font-size:10pt">-Si se ha cementado provisionalmente, se puede desprender o puede notar
+                    molestias Iigeras.</span></p>
+        </div>
+        <div id="hoja3">
+            <ol start="8" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>ORTODONCIA</span>
+                </li>
+            </ol>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-EI objetivo de este
+                    tratamiento es corregir la posición anómala de los dientes o maxilares, para obtener una
+                    correcta
+                    función masticatoria así como la mejora estética, para optimizar una reposición dentaria
+                    mediante
+                    prótesis. Es un tratamiento multidisciplinar que puede prolongarse en el tiempo, Io que no
+                    depende
+                    de la técnica empleada ni de su correcta realización, sino de factores generalmente biológlcos,
+                    o de
+                    las respuestas de mi organismo a las fuerzas aplicadas a los maxllares y a los dlentes,
+                    totalmente
+                    impredecibles, y que durante todo ese tiempo debo extremar las medidas de higlene oral para
+                    evitar
+                    consecuencias:</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-aparición de caries y/o
+                    alteraciones perlodontales. Un deficiente control de la placa bacteriana puede obligar incluso a
+                    la
+                    suspensión del tratamiento. -La ortodoncia incluye muchos posibles procedimientos, se podrían
+                    clasificar en procedimientos de aparatología fija (vestibular o lingual), aparatología
+                    removible,
+                    aparatos ortopedicos bucofaciales y todas sus Posibles combinaciones, Es relativamente frecuente
+                    que
+                    durante el curso del tratamiento se produzcan despegamientos o roturas de la aparatologfa
+                    utilizada
+                    que requerirán consultar con el ortodoncista. Para prevenir todas estas circunstancias se
+                    compromete
+                    a someterse a las revisiones periódicas que el profesional considere oportunas.</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">-Sé que es posible que dichos aparatos si no se tratan con cuidado
+                    pueden
+                    romperse, en cuyo caso el tratamiento sufrirá y tendrá retraso. Tambiën me ha explicado que
+                    pueden
+                    producir úlceras o llagas o incluso pueden producirse con el tiempo reabsorción de Ias raices o
+                    disminuciones en el tamaño de las encías, que deben ser objeto de tratamiento posterior. EI
+                    facultativo también me ha explicado que a Io largo del tratamiento puede ser preciso extraer
+                    algún
+                    diente.</span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-La caída de la
+                    aparatología,
+                    si es repetida, además de retrasar el tratamiento y perjudicarlo, representará un coste
+                    adicional a
+                    los padres o responsables. EI presupuesto de ortodoncia fija incluye un número determinado de
+                    brackets, y gomas, a partir de los cuales, sus repuesto y reposición se cobrarán según tarifa
+                    vigente.</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">-Me ha sido explicado que para la realizacidn de éste tratamiento es
+                    imprescindible mi colaboración con una higiene oral muy escrupulosa y con visitas periódicas
+                    para
+                    control clínico y radiológico.</span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">-Un tratamiento de ortodoncia no garantiza que los dientes estén
+                    perfectamente alineados toda la vida, pues a Io largo de los años los dientes están sometidos a
+                    fuerzas de masticación, hábitos y al desgaste propio que sufre todo el organismo por ello es
+                    importante que siga las instrucciones del ortodoncista en la fase de retención, una vez acabado
+                    el
+                    tratamiento utilizando según las indicaciones los retenedores fijos y/o removibles en funci6n de
+                    cada caso siendo su uso continuo y estricto siguiendo las indicaciones del doctor para poder
+                    garantizar la duración del tratamiento con el paso del tiempo.</span>
+            </p>
+            <ol start="9" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>PRÓTESIS REMOVIBLE PARCIAL O TOTAL</span>
+                </li>
+            </ol>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Es un tratamiento que
+                    consiste en la reposici6n de dientes ausentes mediante aparatos bucales, de metal o resina, o
+                    bien
+                    combinados que portan dientes artificiales.</span></p>
+            <p style="margin-right:1.4pt; margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">-Pueden producir sensación de ocupación, salivación más abundante,
+                    disminución del sentido del gusto, dificultades de pronunciación... -Es probable que los dientes
+                    artificiales sean diferentes en forma color y tamaño.</span>
+            </p>
+            <p style="margin-right:12.25pt; margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">-Con el
+                    paso del tiempo se pueden producir desplazamiento de los dientes remanentes o cambios en la
+                    morfología ósea que provoque desadaptación del aparato, produciendo molestias e incluso
+                    uleraciones.
+                    En estos casos habrá que adaptarlos o/y sustituirlos.</span></p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">1O. CIRUGÍA BUCAL -En
+                    ella se
+                    engloban todos los procedimientos quirúrgicos que se realizan en la cavidad oral, -Comprendo que
+                    la
+                    practica de la Cirugía Bucal no es una clencia exacta, y que pretende solucionar una patología
+                    diagnosticada gracias a los hechos observados o comprobados hasta este momento; por tanto no es
+                    razonable que el cirujano sea capaz de anticipar ni de explicar todos los riesgos ni
+                    complicaciones.
+                    -Comprendo también que un resultado indeseable no necesariamente implica un error en ese juicio,
+                    por
+                    Io que buscando los mejores resultados conflo en que el conocimiento y las decisiones del
+                    profesional durante el procedimiento 0 intervención estarán basados sobre Ios hechos hasta
+                    entonces
+                    conocidos, buscando siempre mi mayor beneficio.</span></p>
+            <p style="margin-right:20.05pt; margin-left:2.85pt; line-height:12.5pt"><span
+                    style="font-size:10pt; -aw-import:spaces">&#xa0;</span>
+                <span style="font-size:10pt">-Me ha explicado que toda la intervención en la boca, aunque de modo
+                    infrecuente e incluso imprescindible pueden tener riesgos y complicaciones entre las que se
+                    incluyen: </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">infección.</span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Limitación de la apertura bucal. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Dehiscencia de la sutura. </span>
+            </p>
+            <p
+                style="margin-right:3.05pt; margin-left:10.35pt; text-indent:-7.5pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Complicaciones nerviosas: anestesista o hipostesia del nervio dentario
+                    inferior, nervio mentoniano, nervio lingual, nervio infraorbital, temporal o permanente. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Fractura ósea. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Rotura de instrumentos. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Comunicación oronasal y/o orosinusal. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Daño a estructuras vecinas (dientes o restauraciones).</span>
+            </p>
+            <p style="margin-right:25.35pt; margin-left:2.85pt; text-align:justify; line-height:12.5pt"><span
+                    style="font-size:10pt">En caso de presentar trastornos en la coagulación deberé advertir al
+                    profesional antes de cualquler intervención odontológica para suspender/pautar su tratamiento en
+                    colaboración con su médico para minimizar los riesgos que dicha alteración pudiese
+                    agravarle.</span>
+            </p>
+        </div>
+        <div id="hoja4">
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">En caso de paclentes que tomen o hayan tomado bifosfonatos por via oral
+                    o
+                    intravenosa (fármacos utllizados en tratamientos de osteoporosis para evitar la pérdida de masa
+                    Ósea) debe informar al odontólogo o clrujano, ya que la toma de Ios mismos puede asociarse a una
+                    patología denominada «osteonecrosis de los maxilares que es potencialmente grave. Durante los
+                    tres
+                    primeros meses con este tratamiento el riesgo de necrosis no existe, pero tras estos tres meses
+                    y
+                    hasta 10 años después de suspender el tratamlento el rlesgo es elevado. </span>
+            </p>
+            <p
+                style="margin-right:25.85pt; margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Los pacientes que toman bifosfonatos presentan un
+                    riesgo
+                    2,5 veces mayor de presentar fracasos de implantes con respecto a las personas que no toman este
+                    tipo de fármacos. </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Los pacientes fumadores deben conocer que existe una proporción
+                    signlflcativamente mayor en fracasos de Implantes con respecto a los no fumadores (11.28% de
+                    fracasos en fumadores frente a 3,76% en no fumadores considerado a paciente fumador a la persona
+                    que
+                    fuma más de 5 cigarrillos al día. 10.1. Exodoncias -Es la técnica medlante la cual se practica
+                    la
+                    extracción de un diente o porción de este del lecho óseo que lo alberga mediante el uso de
+                    forceps o
+                    botadores. </span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">10.2. Sustitución de
+                    plezas
+                    por implantes dentales -Supone la colocación de dispositivos de titanio que al osteointegrarse
+                    soportarán la prótesis dental. -En la mayoría de los casos es necesario pruebas radiográficas
+                    complementarias tipo TAC (tomograffa axial computerizada) etc. -La colocación de implantes
+                    requiere
+                    una incisión en la mucosa oral, despegamiento de la misma y colocación del implante en el hueso
+                    maxilar. Dependiendo de la técnica empleada, puede ser necesario un periodo de osteointegración,
+                    que
+                    oscilará entre cuatro meses en la mandíbula y seis en el maxilar superior. Este periodo no es
+                    inamovible, y estará sujeto a variaciones individuales en función del
+                    tipo de paciente, tipo de prótesis dental, etc. -Tras el plazo de osteointegración, se puede
+                    practicar una segunda cirugia que consistirá en descubrir el implante para poder conectar un
+                    pilar
+                    protésico (pilar de cicatrización) que servirá para atornillar o cementar sobre él coronas y/o
+                    puentes protésicos necesarios. Aparte de los riesgos ya mencionados en cualquier cirugia, pueden
+                    presentarse: * Fractura de alguno de los aditamentos necesarios para la rehabilitación
+                    implantoprotésica. </span></p>
+            <p
+                style="margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Lesiones radiculares de dientes adyacentes. </span>
+            </p>
+            <p
+                style="margin-right:20pt; margin-left:10.35pt; text-indent:-7.5pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Lesiones nerviosas con pérdida de sensibilidad en
+                    labios,
+                    lengua, encía y mentón, que suele ser transitoria, aunque en un pequeño porcentaje puede ser
+                    permanente. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Sinusitis. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Desplazamiento del implante a regiones adyñacentes y
+                    fractura de mandíbula en situaciones de hueso atrófico. </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:1; -aw-list-number-format:'10.%1.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'3'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">10.3.</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Cirugía periaplcal Consiste en la eliminación del tejido inflamatorio
+                    periapical posterior recección del ápice del/los dientes y obturación a retro del/los conducto
+                    radicular/es. La patología responsable de este tipo de tratamiento está ocasionada básicamente
+                    por
+                    procesos de necrosis radicular y/o fracaso del tratamiento endodontico, por lo que será
+                    necesario
+                    tratamiento o retratamiento endodóntico respectivamente antes de realizar este tipo de cirugía.
+                    Las
+                    complicaciones potenciales de este tipo de tratamiento quirúrgico son, aparte de las mencionadas
+                    previamente: </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span><span style="font-size:10pt">Recidiva de patología periapical. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Exposición radicular de los dientes intervenidos. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Defecto en el sellado del material de obturación.</span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Fractura de instrumentos quircirgicos durante la intervención. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">*</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Fuga de material de sellado en la región intervenida. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">*</span><span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Complicaciones infecciosas localizadas en forma de fistulas orales.
+                </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'10.%0.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'4'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore"><span style="font-size:10pt">10.4.</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Biopsia en cirugía bucal -Consiste en la toma de una muestra
+                    representativa
+                    de la lesión. Este procedimiento analizado por el patólogo, nos da el diagnóstico definitivo de
+                    la
+                    lesión, lo que dará paso al comienzo del tratamiento concreto de la misma. Las complicaciones
+                    potenciales de este tratamiento quirurgico, son, aparte de las mencionadas previamente: *
+                    Necesidad
+                    de repetir la biopsia, si el patólogo necesitara otra muestra para un análisis histológico mas
+                    detallado. </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'10.%0.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'5'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">10.5.</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Cirugía preprotéslca -Tiene como fin acondicionar y preparar los
+                    tejidos
+                    bucales tanto duros como blandos para la posterior colocación de una prótesis dental. Estas
+                    técnicas
+                    fundamentalmente aportan tejido en aquellas áreas anatómicas donde falte, o Io reducen en
+                    aquellas
+                    donde
+                    éste se haya hipertrofiado, o modifican su forma en los casos en los que su disposición original
+                    dificulte la rehabilitación con prótesis. -Las complicaciones mas frecuentemente asociadas a
+                    este
+                    tipo
+                    de técnicas son: dehiscencia de suturas, infección y pérdida del injerto de partes blandas, no
+                    incorporación de los injertos o sustitutos óseos, retracciones cicatriciales inesperadas y
+                    regreso
+                    de
+                    los tejidos modificados a su posición original por la asociación de varias de las causas
+                    anteriormente
+                    reseñadas. </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'10.%0.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'6'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">10.6.</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Cirugia de tumores y quistes de la cavidad bucal -Los quistes y tumores
+                    de
+                    los
+                    maxilares requieren de un tratamiento quircirgico que va desde la simple enucleación de la
+                    lesión,
+                    hasta
+                    la exéresis en bloque de la misma con un margen de hueso sano. La mayor parte de las veces
+                    requieren
+                    la
+                    exodoncia de los dientes involucrados. Cuando los quistes tienen su origen en uno o varios
+                    dientes
+                    necrosados, si no se procede a la realización previa de una endodoncia sobre los dientes
+                    causantes,
+                    la
+                    cirugia no tendrá posibilidades de éxito.</span>
+            </p>
+        </div>
+        <div id="hoja5">
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">-Las complicaciones de este tratamiento quirúrgico aparte de las
+                    mencionadas
+                    previamente son: *Osteitis, secuestros óseos localizados *Exposición radicular de los dientes
+                    intervenidos *Fractura mandíbula en lesiones de gran tamaño *Fractura de instrumentos
+                    quirúrgicos
+                    durante la intervención *Fuga de material de sellado en la región intervenida *Fistulas orales
+                    10.7
+                    Reimplantes, transplantes y reubicación dentaria. Este tipo de técnicas terapéuticas no unas
+                    tienen
+                    garantías completas De éxito y estan sujetas a factores ajenos al control del profesional, tales
+                    como el
+                    grado de desarrollo de las raíces de los dientes, alteraciones de los tejidos blandos que rodean
+                    al
+                    diente(estado del periodonto) tiempo transcurrido desde la avulsíón del diente y forma en la que
+                    éste ha
+                    sido preservado hasta la llegada al profesional, manera en que se produjo el traumatismo, etc.
+                    Las
+                    complicaciones más frecuentemente asociados a estas técnicas son: *Reabsorciones radiculares
+                    externas y
+                    internas. *Anquilosis del diente. *Infecciones del lecho traumatizado *Pérdida definitiva del
+                    diente.
+                    *Cicatrización peridentaria (regeneración periodontal) incompleta. 10.8 Sustitución ósea
+                    Consiste en
+                    injertar hueso autógeno o sintetizado para solventar la escasez ósea en zonas que deben
+                    utilizarse
+                    para
+                    colocar implantes. Necesita un tiempo de integración de cuatro a seis meses.</span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">El fracaso del injerto o sustituto óseo empleado en concreto puede
+                    suceder
+                    por
+                    motivos de diversa índole: reabsorción imprevisible, pérdida del injerto por exposición como
+                    consecuencia de dehiscencia de herida o colgajos, infección del injerto y rechazo del material
+                    implantado. 10.9 Extracción de cordales y caninos incluidos. Los corrales o muelas del juicio
+                    suelen
+                    estar semierupsionadis o completamente en posiciones desfavorables. Si presentan patología deben
+                    extraerse mediante técnicas quirúrgicas que además de los riesgos comunes a todas las cirugías
+                    pueden
+                    provocar una luxación mandibular(en casos muy raros) o maxilar, en cuyo caso deberé recibir el
+                    tratamiento preciso con un especialista de esa materia. Los caninos incluidos suelen albergarse
+                    en
+                    la
+                    zona palatina en la mayoría de los casos. Cuando extraemos estas piezas intentamos evitar la
+                    evoluclón a
+                    un quiste folicular, ameloblastoma y otro tumor. La intervención conslste en la realización de
+                    una
+                    incislón en la mucosa, despegamiento y eliminación del hueso que recubre al canino para poder
+                    extraer la
+                    pieza. 11. Rehabilitaciones con prótesis implantosoportadas y/o mucosoportadas -Son prótesis que
+                    constan
+                    de unas estructuras ancladas mediante tornillos a los implantes que se han colocado en el
+                    maxilar
+                    superior y/o inferior con objetivo de recuperar las función y estética de las piezas para
+                    sustituir.
+                    Existen diferentes tipos: *dientes unitarios *puentes *prótesis híbridas *sobredentaduras
+                    *prótesis fija implantosoportadas</span>
+            </p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">-Las posibles complicaciones que pueden presentarse durante o después
+                    de
+                    haber
+                    realizado el tratamiento son: </span>
+            </p>
+            <ol type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>No integracin de implante en el momento de torque de pilares. </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Complicaciones por fractura de aditamentos protésicos (pilares) por fuerzas excesivas.
+                    </span>
+                </li>
+            </ol>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">3, Descementación de temporales y coronas. </span>
+            </p>
+            <ol start="4" type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Fractura de estructura metálica o de cerámica. </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Periimplantitis asociada a mala higiene. </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Defectos periodontales por falta de soporte óseo. </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Uso de aditamentos que corrijan posición de implantes. </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Necesidad de cirugías periodontales para mejorar defectos óseos. </span>
+                </li>
+                <li style="margin-right:17pt; margin-left:12.85pt; line-height:12.5pt; font-size:10pt">
+                    <span>La estética no siempre puede lograrse de manera perfecta debido a la propia anatomía de
+                        los
+                        dientes adyacentes o de Ios desplazamientos que Ias piezas hayan sufrido desde la pérdida de
+                        la
+                        pieza hasta la reposición de la misma, posiciones mandibulares, sobremordidas, etc. </span>
+                </li>
+            </ol>
+            <p style="margin-left:2.85pt; line-height:12.5pt">
+                <span style="font-size:10pt">12.Estética dental -Son aquellos tratamientos enfocados a conseguir una
+                    mejoría
+                    en la forma o coloración dentaria, sin la necesidad de que la pieza esté dañada. </span>
+            </p>
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'12.%0.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'1'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">12.1.</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Carillas dentales -Son estructuras de cerámica o bien de composite que
+                    sustituyen forma,longitud, tamaño y unifican coloración de las caras vestibulares (delanteras)
+                    de
+                    las
+                    piezas dentales. -EI tratamlento en los dientes delanteros requiere eliminar menos estructura
+                    dental
+                    que
+                    la preparación para una corona completa, pero el proceso es irreversible porque parte del
+                    esmalte
+                    del
+                    dlente debe ser elimlnado para proveer el espaclo adecuado para fijar con cemento la cubierta.
+                    La
+                    restauraclón para una carllla requlere dos fases:</span>
+            </p>
+            <ol type="1" style="margin:0pt; padding-left:0pt">
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>La preparación del diente y la toma de una impresión para enviarla a laboratorio, </span>
+                </li>
+                <li
+                    style="margin-top:1.45pt; margin-left:12.85pt; text-align:justify; line-height:11.05pt; font-size:10pt">
+                    <span>Ajuste y cementación de la carilla una vez que la estética y la función han sido
+                        verificadas,
+                    </span>
+                </li>
+            </ol>
+            <p
+                style="margin-top:1.45pt; margin-left:2.85pt; margin-bottom:1.45pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">- Beneficios:</span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="font-size:10pt">* Proteger a los dientes que se han desgastado, despostillado o roto.
+                </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="font-size:10pt">* Puede ser usada para propósitos estéticos al reparar dientes que
+                    están.
+                    mal
+                    alineados. </span>
+            </p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">- Riesgos: </span>
+            </p>
+            <p
+                style="margin-right:12.1pt; margin-left:2.85pt; text-indent:-0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="font-size:10pt">* La preparación de un diente para una carilla consiste en eliminar
+                    esmalte
+                    de
+                    la superficie del diente, puede irritar el tejido nervioso, dando sensibilidad al calor al frio
+                    o la
+                    presión. </span>
+            </p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">* Las carillas pueden no igualar exactamente el color de mis otros
+                    dientes,
+                </span>
+            </p>
+            <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                <span style="font-size:10pt">* Existe el riesgo de aspirar (inhalar) o tragar la carilla durante el
+                    tratamiento. </span>
+            </p>
+            <p
+                style="margin-top:1.45pt; margin-left:10.35pt; text-indent:-7.5pt; text-align:justify; line-height:11.05pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'*'; -aw-list-number-styles:'bullet'; -aw-list-padding-sml:2.5pt">
+                <span style="font-size:10pt">* Aunque no es probable las carillas pueden desprenderse o caerse.
+                </span>
+            </p>
+        </div>
+        <div id="hoja6">
+            <p
+                style="margin-left:2.85pt; text-indent:0pt; line-height:12.5pt; -aw-import:list-item; -aw-list-level-number:0; -aw-list-number-format:'12.%0.'; -aw-list-number-styles:'decimal'; -aw-list-number-values:'2'; -aw-list-padding-sml:2.5pt">
+                <span style="-aw-import:ignore">
+                    <span style="font-size:10pt">12.2.</span>
+                    <span
+                        style="width:2.5pt; font:7pt 'Times New Roman'; display:inline-block; -aw-import:spaces">&#xa0;
+                    </span></span>
+                <span style="font-size:10pt">Blanqueamiento dental -Consiste en la aplicación, en clínica o
+                    ambulatoria,
+                    de
+                    sustancias blanqueantes que consiguen un aclaramiento del diente. -Me han explicado que se me
+                    aclararán
+                    los dientes como mínimo un tono, aunque si tengo bandas, éstas se me seguirán notando, aunque
+                    más
+                    claras. También que si soy fumador/a o tomo muchos alimentos o bebidas ricos en colorantes, se
+                    me
+                    volveran a oscurecer más rápido. Si se me ha hecho un tratamiento con cubetas en casa, puedo
+                    repetir
+                    según me indique el odontólogo. Se me ha informado que puedo tener una sensibilidad, molestia e
+                    incluso
+                    un dolor al frío y al dispositivo de blanqueamiento a lo largo del procedimiento. También pueden
+                    producirse molestias durante hasta una semana después del procedimiento.</span>
+            </p>
+            <p style="margin-left:2.85pt; line-height:12.5pt"><span style="font-size:10pt">Consiento en que se tomen
+                    fotografías y/o registros en otros tipos de soporte audiovisual durante y después de la
+                    realización
+                    del
+                    tratamiento, para facilitar el avance del conocimiento cientifico y la docencia. En todos los
+                    casos
+                    será
+                    resguardada la identldad del/la paclente. He comprendido las explicaciones que se me han
+                    facilitado,
+                    y
+                    el Facultativo me ha permltldo realizar todas las observaciones y me ha aclarado todas las dudas
+                    que
+                    le
+                    he planteado, Si surgiera cualquier situación inesperada durante la intervención, autorizo a mi
+                    especialista a realizar cualquier procedimiento o maniobra que, en su juicio clínico, estime
+                    oportuna
+                    para mi mejor tratamiento. También comprendo, que en cualquler momento y sin necesidad de dar
+                    ninguna
+                    explicación puedo revocar el consentimiento que ahora presto. Por ello, me considero en
+                    condiciones
+                    de
+                    ponderar debidamente tanto los riesgos como la utilidad y beneficio que puedo obtener del
+                    tratamiento,
+                    también garantizo pago de servicios y tratamientos prestados en su totalidad, así pues,
+                    manifiesto
+                    que
+                    estoy satisfecho/a con la información recibida y por ello, YO DOY MI CONSENTIMIENTO</span></p>
+            <p><span style="font-size:10pt">Observaciones:</span></p>
+            <p><textarea style="border:none" id="observaciones" name="observaciones" cols="85"></textarea></p>
+            <div id="sp1">
+                <p style="margin-top:1.45pt; margin-left:2.85pt; text-align:justify; line-height:11.05pt">
+                    <span style="font-size:10pt">Y para que así conste, firmo el presente original después de
+                        leído</span>
+                </p>
+            </div>
+            <span id="sp2" style="font-size:10pt">En Valencia a</span>
+            <span>
+                <input style="border:none" type="date" id="date" name="date">
+            </span>
+            <p>&#xa0;</p>
+            <span id="sp3" style="font-size:10pt">Firma y DNI(NIE) del paciente o representante
+                legal</span>
+            <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+            <span id="sp4" style="font-size:10pt">Firma del médico/odntólogo</span>
+            <div><input style="border:none" type="text" id="DNI_paciente" name="DNI_paciente"
+                    placeholder="..........." /></div>
+            <p>&#xa0;</p>
+            <canvas id="signature-pad" width="300" height="150" style="border: 1px solid rgb(255, 255, 255);"></canvas>
+            <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+            <canvas id="signature-pad1" width="300" height="150" style="border: 1px solid rgb(255, 255, 255);"></canvas>
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-around ">
+            <button type="button" style="margin-top: 2%; margin-bottom: 3%" class="btn btn-dark"
+                data-action="action-clear">
+                Clear
+            </button>
+            <span>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;</span>
+            <button type="button" style="margin-top: 2%; margin-bottom: 3%" class="btn btn-dark"
+                data-action="action-clear1">
+                Clear
+            </button>
+        </div>
+        <p>&#xa0;</p>
+        <p>&#xa0;</p>
+        <div style="display: inline-flex; gap: 10px;">
+            <!-- <button class="button-29" role="button" data-action="get_data">Cargar Datos</button> -->
+            <button class="button-29" role="button" data-action="actualizar_data">Actualizar</button>
+            <button class="button-29" role="button" data-action="action-pdf">Descargar PDF</button>
+        </div>
+
+        <script>
+            var clearBtn = document.querySelector("[data-action=action-clear]");
+            var clearBtn1 = document.querySelector("[data-action=action-clear1]");
+            var actualizar = document.querySelector("[data-action=actualizar_data]");
+            var cargar_datos = document.querySelector("[data-action=get_data]");
+            var createPDFBtn = document.querySelector("[data-action=action-pdf]");
+            var canvas = document.getElementById("signature-pad");
+            var canvas1 = document.getElementById("signature-pad1");
+
+            var signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'rgb(250,250,250)'
+            });
+            var signaturePad1 = new SignaturePad(canvas1, {
+                backgroundColor: 'rgb(250,250,250)'
+            });
+
+            canvas.getContext("2d");
+
+            const data = signaturePad.toDataURL();
+            const data1 = signaturePad1.toDataURL();
+            var strimg = data.replace("data:image/png;base64,", "");
+            var strimg1 = data1.replace("data:image/png;base64,", "");
+
+            var imsrc = "data:image/jpeg;base64,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"
+
+            //clearing the signature drawing
+            clearBtn.addEventListener("click", function (event) {
+                if (signaturePad.isEmpty()) {
+                    alert("Please sign first.");
+                } else {
+                    signaturePad.clear();
+                }
+            });
+            clearBtn1.addEventListener("click", function (event) {
+                if (signaturePad1.isEmpty()) {
+                    alert("Please sign first.");
+                } else {
+                    signaturePad1.clear();
+                }
+            });
+
+            function processImage() {
+                //creating a blob and displaying the image in the image element
+                canvas.toBlob(function (blob) {
+                    var targetImg = document.querySelector("img"),
+                        url = URL.createObjectURL(blob);
+                    //targetImg.src = url;
+                });
+            }
+            function processImage1() {
+                //creating a blob and displaying the image in the image element
+                canvas1.toBlob(function (blob) {
+                    var targetImg1 = document.querySelector("img"),
+                        url1 = URL.createObjectURL(blob);
+                    //targetImg.src = url;
+                });
+            }
+
+            function faltandatos(i) {
+                document.getElementById(i).focus();
+                if (i == "signature-pad") {
+                    Swal.fire({
+                        title: 'Falta la firma',
+                        text: ' ',
+                        icon: 'error',
+                    })
+                }
+                else {
+                    Swal.fire({
+                        title: 'Faltan datos por rellenar',
+                        text: ' ',
+                        icon: 'error',
+                    })
+                }
+            }
+
+            const baseURL = 'http://127.0.0.1:7979/cons_get'
+            //const baseURL = 'http://192.168.0.12:7979/cons_get'
+            //const baseURL = 'http://192.168.56.1:7979/cons_get'
+            //cargar_datos.addEventListener("click", async function (event) {
+            //    event.preventDefault()
+            async function cargar_desde_main() {
+                const res = await fetch(baseURL, {
+                    method: 'GET',
+                })
+                //console.log(res)
+                const data = await res.json()
+                document.getElementById("nombre_paciente").value = data.info.nombre;
+                document.getElementById("nombre_representante").value = data.info.nombre_representante;
+                document.getElementById("nombre_doctor").value = data.info.nombre_doctor;
+                document.getElementById("observaciones").value = data.info.observaciones;
+                document.getElementById("date").value = data.info.fecha;
+                document.getElementById("DNI_paciente").value = data.info.dni;
+                var context = canvas.getContext('2d');
+                var context1 = canvas1.getContext('2d');
+                var imageObj = new Image();
+                imageObj.onload = function () {
+                    context.drawImage(this, 0, 0);
+                };
+                imageObj.src = data.info.firma;
+                var imageObj1 = new Image();
+                imageObj1.onload = function () {
+                    context1.drawImage(this, 0, 0);
+                };
+                imageObj1.src = data.info.firma_doctor;
+            };
+
+            createPDFBtn.addEventListener("click", function (event) {
+                window.html2canvas = html2canvas;
+                window.jsPDF = window.jspdf.jsPDF;
+
+                var doc = new jsPDF({
+                    orientation: "p",
+                    unit: "pt",
+                    format: "a4",
+                });
+
+                var specialElementHandlers = {
+                    '#editor': function (element, renderer) {
+                        return true;
+                    }
+                };
+
+                doc.html(document.getElementById("hoja1"), {
+                    callback: function (doc) {
+
+                        doc.html(document.getElementById("hoja2"), {
+                            callback: function (doc) {
+
+                                doc.html(document.getElementById("hoja3"), {
+                                    callback: function (doc) {
+
+
+                                        doc.html(document.getElementById("hoja4"), {
+                                            callback: function (doc) {
+
+
+                                                doc.html(document.getElementById("hoja5"), {
+                                                    callback: function (doc) {
+
+
+                                                        doc.html(document.getElementById("hoja6"), {
+                                                            margin: 20,
+                                                            callback: function (doc) {
+                                                                //doc.setPage(1);
+                                                                //doc.addImage(imsrc, 'PNG', 10, 10, 96, 96);
+                                                                doc.save(document.getElementById('nombre_paciente').value + ' Consentimiento.pdf');
+                                                            }, y: 4020,
+
+                                                            html2canvas: { scale: 0.8 },
+                                                        });
+                                                    }, y: 3218,
+
+                                                    margin: 20,
+                                                    html2canvas: { scale: 0.8 },
+                                                });
+                                            }, y: 2416,
+
+                                            margin: 20,
+                                            html2canvas: { scale: 0.8 },
+                                        });
+                                    }, y: 1614,
+
+                                    margin: 20,
+                                    html2canvas: { scale: 0.8 },
+                                });
+                            }, y: 812,
+
+                            margin: 20,
+                            html2canvas: { scale: 0.8 },
+                        });
+                    }, y: 1,
+                    margin: 20,
+                    html2canvas: { scale: 0.8 },
+                });
+            })
+            // --- Botón "Actualizar" ----//
+            const baseURLpost = 'http://127.0.0.1:7979/cons_post'
+            //const baseURLpost = 'http://192.168.0.12:7979/cons_post'
+            actualizar.addEventListener("click", async function (event) {
+
+                var dataURL = canvas.toDataURL();
+                var dataURL1 = canvas1.toDataURL();
+
+                window.html2canvas = html2canvas;
+                window.jsPDF = window.jspdf.jsPDF;
+
+                var doc = new jsPDF({
+                    orientation: "p",
+                    unit: "pt",
+                    format: "a4",
+                });
+
+                var specialElementHandlers = {
+                    '#editor': function (element, renderer) {
+                        return true;
+                    }
+                };
+
+                const cnombre = document.getElementById("nombre_paciente").value;
+                const cnombre_representante = document.getElementById("nombre_representante").value;
+                const cnombre_doctor = document.getElementById("nombre_doctor").value;
+                const cobservaciones = document.getElementById("observaciones").value;
+                const cdate = document.getElementById("date").value;
+                const cDNI_paciente = document.getElementById("DNI_paciente").value;
+
+                event.preventDefault()
+                if (cnombre == '') {
+                    faltandatos("nombre_paciente")
+                }
+                else if (cdate == '') {
+                    faltandatos("date")
+                }
+                else if (cDNI_paciente == '') {
+                    faltandatos("DNI_paciente")
+                }
+                else if (dataURL == 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGlJREFUeF7t1MEJADAMA7Fm/43zaaFbHCgTGDl4dvceR4AAgYDAGKxASyISIPAFDJZHIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRB4xA9Nk8FyUMcAAAAASUVORK5CYII=') {
+                    faltandatos("signature-pad")
+                }
+                else {
+                    const res = fetch(baseURLpost, {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": 'application/json'
+                        },
+                        body: JSON.stringify({
+                            resp_cons: [cnombre, cnombre_representante, cnombre_doctor, cobservaciones, cdate, cDNI_paciente, dataURL, dataURL1],
+                        })
+                    }).then(response => response.json())
+                    .then(data => {
+                        if (data.status === "existing") {
+                            Swal.fire({
+                                title: 'Los datos ya existen',
+                                text: '¿Desea reemplazarlos?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Sí, reemplazar',
+                                cancelButtonText: 'Cancelar'
+                            }).then((result) => {
+                                if (result.value) {
+                                    // Reemplazar los datos
+                                    const res2 = fetch(baseURLpost, {
+                                        method: 'POST',
+                                        headers: {
+                                            "Content-Type": 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            resp_cons: [cnombre, cnombre_representante, cnombre_doctor, cobservaciones, cdate, cDNI_paciente, dataURL, dataURL1],
+                                            replace: true
+                                        })
+                                    })
+                                        .then(response2 => response2.json())
+                                        .then(data2 => {
+                                            if (data2.status === "recieved") {
+                                                Swal.fire({
+                                                    title: 'Datos reemplazados correctamente',
+                                                    text: '',
+                                                    icon: 'success',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        window.parent.document.querySelector("iframe").src = "lopd.html"
+                                                    }
+                                                })
+                                            } else {
+                                                Swal.fire({
+                                                    title: 'Error al reemplazar datos',
+                                                    text: data2.message,
+                                                    icon: 'error',
+                                                })
+                                            }
+                                        })
+                                }
+                            })
+                        } else if (data.status === "recieved") {
+                            Swal.fire({
+                                title: 'Datos enviados correctamente',
+                                text: '',
+                                icon: 'success',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.parent.document.querySelector("iframe").src = "lopd.html"
+                                }
+                            })
+                        } else {
+                            Swal.fire({
+                                title: 'Error al enviar datos',
+                                text: data.message,
+                                icon: 'error',
+                            })
+                        }
+                    })
+            }
+        })
+        </script>
+        <style>
+            input {
+                height: 20px;
+                font-size: 14px;
+                line-height: 1.33333;
+                border-radius: 1px;
+            }
+        </style>
+</body>
+
+</html>
