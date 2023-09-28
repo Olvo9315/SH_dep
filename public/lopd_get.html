@@ -280,7 +280,8 @@
             }
         });
 
-        const baseURL = 'http://127.0.0.1:7979/lopd_get'
+        const baseURL = 'http://0.0.0.0:8080/lopd_get'
+        //const baseURL = 'http://127.0.0.1:7979/lopd_get'
         //const baseURL = 'http://172.30.16.1:7979/lopd_get'
         //cargar_datos.addEventListener("click", async function (event) {
         //    event.preventDefault()
@@ -359,7 +360,8 @@
         })
 
         // --- Botón "Actualizar" ----//
-        const baseURLpost = 'http://127.0.0.1:7979/lopd_post'
+        const baseURLpost = 'http://0.0.0.0:8080/lopd_post'
+        //const baseURLpost = 'http://127.0.0.1:7979/lopd_post'
         actualizar.addEventListener("click", async function (event) {
 
             var dataURL = canvas.toDataURL();
