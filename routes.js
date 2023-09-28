@@ -185,8 +185,8 @@ router.post("/lopd_post", (req, res) => {
         return res.status(400).send({ status: "failed", message: "Data is missing" });
     }
     else {
-        //console.log("Post LOPD OK. " + resp_lopd[0])
-        //res.status(200).send({ status: "recieved" });
+        console.log("Post LOPD OK. " + resp_lopd[0])
+        res.status(200).send({ status: "recieved" });
         const data = {
             "nombre": resp_lopd[0],
             "dni": resp_lopd[1],
@@ -198,7 +198,7 @@ router.post("/lopd_post", (req, res) => {
             if (error) {
                 return res.status(500).send({ status: "failed", message: "Error connecting to DB" });
             }
-            const collection = client.db(db_name).collection("sh_clients_lopd");
+            const collection = client.db("bit95gdkjmasj4qqbbzy").collection("sh_clients_lopd");
             collection.findOne({ dni: resp_lopd[1] }, function (err, dbRes) {
                 if (err) {
                     return res.status(500).send({ status: "failed", message: "Error retrieving data from DB" });
